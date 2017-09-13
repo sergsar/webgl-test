@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { Scene } from 'three';
 import { PerspectiveCamera } from 'three';
 import { WebGLRenderer } from  'three';
@@ -10,7 +10,7 @@ import { Mesh } from 'three';
   selector: 'my-app',
   templateUrl: './app.component.html',
 })
-export class AppComponent  {
+export class AppComponent implements OnInit {
   private scene: Scene;
   private camera: PerspectiveCamera;
   private renderer: WebGLRenderer;
@@ -18,11 +18,13 @@ export class AppComponent  {
   private basicMaterial: MeshBasicMaterial;
   private mesh: Mesh;
 
+  @ViewChild('canvas') canvas: any;
+
   public ngOnInit() {
     this.scene = new Scene();
     this.camera = new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-    this.renderer = new WebGLRenderer();
+    this.renderer = new WebGLRenderer({ canvas: this.canvas.nativeElement });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
 
 
