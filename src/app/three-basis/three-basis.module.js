@@ -6,20 +6,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var platform_browser_1 = require("@angular/platform-browser");
-var app_component_1 = require("./app.component");
-var three_basis_module_1 = require("./three-basis/three-basis.module");
-var AppModule = (function () {
-    function AppModule() {
+var three_renderer_component_1 = require("./three-renderer.component");
+var three_scene_component_1 = require("./three-scene.component");
+var ThreeBasisModule = (function () {
+    function ThreeBasisModule() {
     }
-    return AppModule;
+    return ThreeBasisModule;
 }());
-AppModule = __decorate([
+ThreeBasisModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, three_basis_module_1.ThreeBasisModule],
-        declarations: [app_component_1.AppComponent],
-        bootstrap: [app_component_1.AppComponent]
+        imports: [],
+        declarations: [three_renderer_component_1.ThreeRendererComponent, three_scene_component_1.ThreeSceneComponent],
+        exports: [three_renderer_component_1.ThreeRendererComponent, three_scene_component_1.ThreeSceneComponent]
     })
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+], ThreeBasisModule);
+exports.ThreeBasisModule = ThreeBasisModule;
+//# sourceMappingURL=three-basis.module.js.map
