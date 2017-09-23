@@ -11,36 +11,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var three_1 = require("three");
 var three_scene_component_1 = require("./three-scene.component");
-var ThreeCanvasComponent = (function () {
-    function ThreeCanvasComponent() {
+var ThreeRendererComponent = (function () {
+    function ThreeRendererComponent() {
         this.height = 500;
         this.width = 500;
     }
-    ThreeCanvasComponent.prototype.ngAfterContentInit = function () {
+    ThreeRendererComponent.prototype.ngAfterContentInit = function () {
         this.renderer = new three_1.WebGLRenderer({ canvas: this.canvas.nativeElement });
         this.renderer.setSize(this.width, this.height);
         this.renderer.render(this.threeSceneComponent.scene, this.threeSceneComponent.camera);
     };
-    return ThreeCanvasComponent;
+    return ThreeRendererComponent;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", Number)
-], ThreeCanvasComponent.prototype, "height", void 0);
+], ThreeRendererComponent.prototype, "height", void 0);
 __decorate([
     core_1.Input(),
     __metadata("design:type", Number)
-], ThreeCanvasComponent.prototype, "width", void 0);
+], ThreeRendererComponent.prototype, "width", void 0);
 __decorate([
     core_1.ContentChild(three_scene_component_1.ThreeSceneComponent),
     __metadata("design:type", three_scene_component_1.ThreeSceneComponent)
-], ThreeCanvasComponent.prototype, "threeSceneComponent", void 0);
+], ThreeRendererComponent.prototype, "threeSceneComponent", void 0);
 __decorate([
     core_1.ViewChild('canvas'),
     __metadata("design:type", Object)
-], ThreeCanvasComponent.prototype, "canvas", void 0);
-ThreeCanvasComponent = __decorate([
-    core_1.Component({ selector: 'three-canvas', templateUrl: './three-canvas.component.html' })
-], ThreeCanvasComponent);
-exports.ThreeCanvasComponent = ThreeCanvasComponent;
-//# sourceMappingURL=three-canvas.component.js.map
+], ThreeRendererComponent.prototype, "canvas", void 0);
+ThreeRendererComponent = __decorate([
+    core_1.Component({ selector: 'three-renderer', templateUrl: './three-renderer.component.html' })
+], ThreeRendererComponent);
+exports.ThreeRendererComponent = ThreeRendererComponent;
+//# sourceMappingURL=three-renderer.component.js.map

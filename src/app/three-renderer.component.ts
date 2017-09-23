@@ -2,8 +2,8 @@ import {Component, ContentChild, Input, AfterContentInit, ViewChild } from '@ang
 import {WebGLRenderer} from 'three';
 import {ThreeSceneComponent} from './three-scene.component';
 
-@Component({ selector: 'three-canvas', templateUrl: './three-canvas.component.html' })
-export class  ThreeCanvasComponent implements AfterContentInit {
+@Component({ selector: 'three-renderer', templateUrl: './three-renderer.component.html' })
+export class  ThreeRendererComponent implements AfterContentInit {
   private renderer: WebGLRenderer;
 
   @Input()

@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var app_component_1 = require("./app.component");
-var three_canvas_component_1 = require("./three-canvas.component");
+var three_renderer_component_1 = require("./three-renderer.component");
 var three_scene_component_1 = require("./three-scene.component");
 var AppModule = (function () {
     function AppModule() {
@@ -18,7 +18,7 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule],
-        declarations: [app_component_1.AppComponent, three_canvas_component_1.ThreeCanvasComponent, three_scene_component_1.ThreeSceneComponent],
+        declarations: [app_component_1.AppComponent, three_renderer_component_1.ThreeRendererComponent, three_scene_component_1.ThreeSceneComponent],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
