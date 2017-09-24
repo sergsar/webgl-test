@@ -22,6 +22,6 @@ export class  ThreeRendererComponent implements AfterContentInit {
     this.renderer = new WebGLRenderer({ canvas: this.canvas.nativeElement });
     this.renderer.setSize(this.width, this.height);
 
-    this.renderer.render(this.threeSceneComponent.scene, this.threeSceneComponent.camera);
+    this.renderer.render(this.threeSceneComponent.scene, this.threeSceneComponent.threeCameraComponent.camera);
   }
 }

@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var three_renderer_component_1 = require("./three-renderer.component");
 var three_scene_component_1 = require("./three-scene.component");
+var three_camera_component_1 = require("./three-camera.component");
 var ThreeBasisModule = (function () {
     function ThreeBasisModule() {
     }
@@ -16,8 +17,16 @@ var ThreeBasisModule = (function () {
 ThreeBasisModule = __decorate([
     core_1.NgModule({
         imports: [],
-        declarations: [three_renderer_component_1.ThreeRendererComponent, three_scene_component_1.ThreeSceneComponent],
-        exports: [three_renderer_component_1.ThreeRendererComponent, three_scene_component_1.ThreeSceneComponent]
+        declarations: [
+            three_renderer_component_1.ThreeRendererComponent,
+            three_scene_component_1.ThreeSceneComponent,
+            three_camera_component_1.ThreeCameraComponent
+        ],
+        exports: [
+            three_renderer_component_1.ThreeRendererComponent,
+            three_scene_component_1.ThreeSceneComponent,
+            three_camera_component_1.ThreeCameraComponent
+        ]
     })
 ], ThreeBasisModule);
 exports.ThreeBasisModule = ThreeBasisModule;

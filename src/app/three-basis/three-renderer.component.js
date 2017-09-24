@@ -19,7 +19,7 @@ var ThreeRendererComponent = (function () {
     ThreeRendererComponent.prototype.ngAfterContentInit = function () {
         this.renderer = new three_1.WebGLRenderer({ canvas: this.canvas.nativeElement });
         this.renderer.setSize(this.width, this.height);
-        this.renderer.render(this.threeSceneComponent.scene, this.threeSceneComponent.camera);
+        this.renderer.render(this.threeSceneComponent.scene, this.threeSceneComponent.threeCameraComponent.camera);
     };
     return ThreeRendererComponent;
 }());
