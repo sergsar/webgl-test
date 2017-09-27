@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var three_1 = require("three");
-var three_scene_component_1 = require("./three-scene.component");
 var ThreeRendererComponent = (function () {
     function ThreeRendererComponent() {
         this.height = 500;
@@ -19,7 +18,9 @@ var ThreeRendererComponent = (function () {
     ThreeRendererComponent.prototype.ngAfterContentInit = function () {
         this.renderer = new three_1.WebGLRenderer({ canvas: this.canvas.nativeElement });
         this.renderer.setSize(this.width, this.height);
-        this.renderer.render(this.threeSceneComponent.scene, this.threeSceneComponent.threeCameraComponent.camera);
+    };
+    ThreeRendererComponent.prototype.render = function (scene, camera) {
+        this.renderer.render(scene, camera);
     };
     return ThreeRendererComponent;
 }());
@@ -31,10 +32,6 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", Number)
 ], ThreeRendererComponent.prototype, "width", void 0);
-__decorate([
-    core_1.ContentChild(three_scene_component_1.ThreeSceneComponent),
-    __metadata("design:type", three_scene_component_1.ThreeSceneComponent)
-], ThreeRendererComponent.prototype, "threeSceneComponent", void 0);
 __decorate([
     core_1.ViewChild('canvas'),
     __metadata("design:type", Object)

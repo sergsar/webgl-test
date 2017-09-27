@@ -9,6 +9,7 @@ var core_1 = require("@angular/core");
 var three_renderer_component_1 = require("./three-renderer.component");
 var three_scene_component_1 = require("./three-scene.component");
 var three_camera_component_1 = require("./three-camera.component");
+var three_area_component_1 = require("./three-area.component");
 var ThreeBasisModule = (function () {
     function ThreeBasisModule() {
     }
@@ -18,11 +19,13 @@ ThreeBasisModule = __decorate([
     core_1.NgModule({
         imports: [],
         declarations: [
+            three_area_component_1.ThreeAreaComponent,
             three_renderer_component_1.ThreeRendererComponent,
             three_scene_component_1.ThreeSceneComponent,
             three_camera_component_1.ThreeCameraComponent
         ],
         exports: [
+            three_area_component_1.ThreeAreaComponent,
             three_renderer_component_1.ThreeRendererComponent,
             three_scene_component_1.ThreeSceneComponent,
             three_camera_component_1.ThreeCameraComponent

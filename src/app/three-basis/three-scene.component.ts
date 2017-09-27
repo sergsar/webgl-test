@@ -1,15 +1,11 @@
-import {Component, AfterContentInit, ContentChild} from '@angular/core';
+import {Component, AfterContentInit} from '@angular/core';
 import {BoxGeometry, Mesh, MeshBasicMaterial, Scene} from 'three';
-import {ThreeCameraComponent} from './three-camera.component';
 
 @Component({ selector: 'three-scene', templateUrl: './three-scene.component.html' })
 export class ThreeSceneComponent implements AfterContentInit {
   private boxGeometry: BoxGeometry;
   private basicMaterial: MeshBasicMaterial;
   private mesh: Mesh;
-
-  @ContentChild(ThreeCameraComponent)
-  threeCameraComponent: ThreeCameraComponent;
 
   public scene: Scene;
 

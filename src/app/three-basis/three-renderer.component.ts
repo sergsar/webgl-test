@@ -1,6 +1,5 @@
-import {Component, ContentChild, Input, AfterContentInit, ViewChild } from '@angular/core';
-import {WebGLRenderer} from 'three';
-import {ThreeSceneComponent} from './three-scene.component';
+import {Component, Input, AfterContentInit, ViewChild } from '@angular/core';
+import {Camera, Scene, WebGLRenderer} from 'three';
 
 @Component({ selector: 'three-renderer', templateUrl: './three-renderer.component.html' })
 export class  ThreeRendererComponent implements AfterContentInit {
@@ -12,16 +11,15 @@ export class  ThreeRendererComponent implements AfterContentInit {
   @Input()
   width: number = 500;
 
-  @ContentChild(ThreeSceneComponent)
-  threeSceneComponent: ThreeSceneComponent;
-
   @ViewChild('canvas')
   canvas: any;
 
   public ngAfterContentInit() {
     this.renderer = new WebGLRenderer({ canvas: this.canvas.nativeElement });
     this.renderer.setSize(this.width, this.height);
+  }
 
-    this.renderer.render(this.threeSceneComponent.scene, this.threeSceneComponent.threeCameraComponent.camera);
+  public render(scene: Scene, camera: Camera) {
+    this.renderer.render(scene, camera);
   }
 }
