@@ -10,6 +10,9 @@ var three_renderer_component_1 = require("./three-renderer.component");
 var three_scene_component_1 = require("./three-scene.component");
 var three_camera_component_1 = require("./three-camera.component");
 var three_area_component_1 = require("./three-area.component");
+var renderer_scope_service_1 = require("./renderer-scope.service");
+var camera_scope_service_1 = require("./camera-scope.service");
+var scene_scope_service_1 = require("./scene-scope.service");
 var ThreeBasisModule = (function () {
     function ThreeBasisModule() {
     }
@@ -29,6 +32,11 @@ ThreeBasisModule = __decorate([
             three_renderer_component_1.ThreeRendererComponent,
             three_scene_component_1.ThreeSceneComponent,
             three_camera_component_1.ThreeCameraComponent
+        ],
+        providers: [
+            renderer_scope_service_1.RendererScopeService,
+            camera_scope_service_1.CameraScopeService,
+            scene_scope_service_1.SceneScopeService
         ]
     })
 ], ThreeBasisModule);

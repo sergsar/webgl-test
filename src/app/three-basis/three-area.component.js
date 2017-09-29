@@ -10,8 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var three_renderer_component_1 = require("./three-renderer.component");
-var three_scene_component_1 = require("./three-scene.component");
-var three_camera_component_1 = require("./three-camera.component");
 var ThreeAreaComponent = (function () {
     function ThreeAreaComponent(ngZone) {
         this.ngZone = ngZone;
@@ -22,22 +20,14 @@ var ThreeAreaComponent = (function () {
     ThreeAreaComponent.prototype.animate = function () {
         var _this = this;
         this.ngZone.runOutsideAngular(function () { return requestAnimationFrame(function () { return _this.animate(); }); });
-        this.threeRendererComponent.render(this.threeSceneComponent.scene, this.threeCameraComponent.camera);
+        this.threeRendererComponents.first.render();
     };
     return ThreeAreaComponent;
 }());
 __decorate([
-    core_1.ContentChild(three_renderer_component_1.ThreeRendererComponent),
-    __metadata("design:type", three_renderer_component_1.ThreeRendererComponent)
-], ThreeAreaComponent.prototype, "threeRendererComponent", void 0);
-__decorate([
-    core_1.ContentChild(three_scene_component_1.ThreeSceneComponent),
-    __metadata("design:type", three_scene_component_1.ThreeSceneComponent)
-], ThreeAreaComponent.prototype, "threeSceneComponent", void 0);
-__decorate([
-    core_1.ContentChild(three_camera_component_1.ThreeCameraComponent),
-    __metadata("design:type", three_camera_component_1.ThreeCameraComponent)
-], ThreeAreaComponent.prototype, "threeCameraComponent", void 0);
+    core_1.ContentChildren(three_renderer_component_1.ThreeRendererComponent),
+    __metadata("design:type", core_1.QueryList)
+], ThreeAreaComponent.prototype, "threeRendererComponents", void 0);
 ThreeAreaComponent = __decorate([
     core_1.Component({ selector: 'three-area', template: "<ng-content></ng-content>" }),
     __metadata("design:paramtypes", [core_1.NgZone])

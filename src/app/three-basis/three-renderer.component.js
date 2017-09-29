@@ -9,17 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var three_1 = require("three");
+var three_scene_component_1 = require("./three-scene.component");
+var renderer_scope_service_1 = require("./renderer-scope.service");
 var ThreeRendererComponent = (function () {
-    function ThreeRendererComponent() {
+    function ThreeRendererComponent(rendererScopeService) {
+        this.rendererScopeService = rendererScopeService;
         this.height = 500;
-        this.width = 500;
+        this.width = 800;
     }
     ThreeRendererComponent.prototype.ngAfterContentInit = function () {
-        this.renderer = new three_1.WebGLRenderer({ canvas: this.canvas.nativeElement });
+        this.renderer = this.rendererScopeService.getRenderer({ canvas: this.canvas.nativeElement });
         this.renderer.setSize(this.width, this.height);
     };
-    ThreeRendererComponent.prototype.render = function (scene, camera) {
+    ThreeRendererComponent.prototype.render = function () {
+        var scene = this.threeSceneComponent.scene;
+        var camera = this.threeSceneComponent.threeCameraComponent.camera;
         this.renderer.render(scene, camera);
     };
     return ThreeRendererComponent;
@@ -36,8 +40,13 @@ __decorate([
     core_1.ViewChild('canvas'),
     __metadata("design:type", Object)
 ], ThreeRendererComponent.prototype, "canvas", void 0);
+__decorate([
+    core_1.ContentChild(three_scene_component_1.ThreeSceneComponent),
+    __metadata("design:type", three_scene_component_1.ThreeSceneComponent)
+], ThreeRendererComponent.prototype, "threeSceneComponent", void 0);
 ThreeRendererComponent = __decorate([
-    core_1.Component({ selector: 'three-renderer', templateUrl: './three-renderer.component.html' })
+    core_1.Component({ selector: 'three-renderer', templateUrl: './three-renderer.component.html' }),
+    __metadata("design:paramtypes", [renderer_scope_service_1.RendererScopeService])
 ], ThreeRendererComponent);
 exports.ThreeRendererComponent = ThreeRendererComponent;
 //# sourceMappingURL=three-renderer.component.js.map
