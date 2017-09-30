@@ -10,15 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var three_scene_component_1 = require("./three-scene.component");
-var renderer_scope_service_1 = require("./renderer-scope.service");
+var renderer_provider_service_1 = require("./renderer-provider.service");
 var ThreeRendererComponent = (function () {
-    function ThreeRendererComponent(rendererScopeService) {
-        this.rendererScopeService = rendererScopeService;
+    function ThreeRendererComponent(rendererProvider) {
+        this.rendererProvider = rendererProvider;
         this.height = 500;
         this.width = 800;
     }
     ThreeRendererComponent.prototype.ngAfterContentInit = function () {
-        this.renderer = this.rendererScopeService.getRenderer({ canvas: this.canvas.nativeElement });
+        this.renderer = this.rendererProvider.getRenderer({ canvas: this.canvas.nativeElement });
         this.renderer.setSize(this.width, this.height);
     };
     ThreeRendererComponent.prototype.render = function () {
@@ -46,7 +46,7 @@ __decorate([
 ], ThreeRendererComponent.prototype, "threeSceneComponent", void 0);
 ThreeRendererComponent = __decorate([
     core_1.Component({ selector: 'three-renderer', templateUrl: './three-renderer.component.html' }),
-    __metadata("design:paramtypes", [renderer_scope_service_1.RendererScopeService])
+    __metadata("design:paramtypes", [renderer_provider_service_1.RendererProvider])
 ], ThreeRendererComponent);
 exports.ThreeRendererComponent = ThreeRendererComponent;
 //# sourceMappingURL=three-renderer.component.js.map

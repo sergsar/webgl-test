@@ -4,10 +4,10 @@ import {ThreeRendererComponent} from './three-renderer.component';
 @Component({selector: 'three-area', template: `<ng-content></ng-content>`})
 export class ThreeAreaComponent implements AfterContentInit {
 
-    constructor(private ngZone: NgZone) { }
-
     @ContentChildren(ThreeRendererComponent)
     threeRendererComponents: QueryList<ThreeRendererComponent>;
+
+    constructor(private ngZone: NgZone) { }
 
     public ngAfterContentInit() {
         this.animate();

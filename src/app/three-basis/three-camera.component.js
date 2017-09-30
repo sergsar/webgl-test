@@ -10,20 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var three_1 = require("three");
-var camera_scope_service_1 = require("./camera-scope.service");
+var camera_provider_service_1 = require("./camera-provider.service");
 var ThreeCameraComponent = (function () {
-    function ThreeCameraComponent(cameraScopeService) {
-        this.cameraScopeService = cameraScopeService;
+    function ThreeCameraComponent(cameraProvider) {
+        this.cameraProvider = cameraProvider;
     }
     ThreeCameraComponent.prototype.ngAfterContentInit = function () {
-        this.camera = this.cameraScopeService.getCamera(function () { return new three_1.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000); });
+        var cameraSetupFn = function () { return new three_1.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000); };
+        this.camera = this.cameraProvider.getCamera(cameraSetupFn);
         this.camera.position.z = 5;
     };
     return ThreeCameraComponent;
 }());
 ThreeCameraComponent = __decorate([
     core_1.Component({ selector: 'three-camera', templateUrl: './three-camera.component.html' }),
-    __metadata("design:paramtypes", [camera_scope_service_1.CameraScopeService])
+    __metadata("design:paramtypes", [camera_provider_service_1.CameraProvider])
 ], ThreeCameraComponent);
 exports.ThreeCameraComponent = ThreeCameraComponent;
 //# sourceMappingURL=three-camera.component.js.map

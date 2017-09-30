@@ -6,20 +6,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var three_1 = require("three");
-var RendererScopeService = (function () {
-    function RendererScopeService() {
+var CameraProvider = (function () {
+    function CameraProvider() {
+        this.cameras = new Map();
     }
-    RendererScopeService.prototype.getRenderer = function (parameters) {
-        if (this.renderer == null) {
-            this.renderer = new three_1.WebGLRenderer(parameters);
+    CameraProvider.prototype.getCamera = function (fn, id) {
+        var camera = this.cameras.get(id);
+        if (camera == null) {
+            camera = fn();
+            this.cameras.set(id, camera);
         }
-        return this.renderer;
+        return camera;
     };
-    return RendererScopeService;
+    return CameraProvider;
 }());
-RendererScopeService = __decorate([
+CameraProvider = __decorate([
     core_1.Injectable()
-], RendererScopeService);
-exports.RendererScopeService = RendererScopeService;
-//# sourceMappingURL=renderer-scope.service.js.map
+], CameraProvider);
+exports.CameraProvider = CameraProvider;
+//# sourceMappingURL=camera-provider.service.js.map

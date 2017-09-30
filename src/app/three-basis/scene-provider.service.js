@@ -7,23 +7,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var three_1 = require("three");
-var SceneScopeService = (function () {
-    function SceneScopeService() {
+var SceneProvider = (function () {
+    function SceneProvider() {
+        this.scenes = new Map();
     }
-    Object.defineProperty(SceneScopeService.prototype, "scene", {
-        get: function () {
-            if (this.privateScene == null) {
-                this.privateScene = new three_1.Scene();
-            }
-            return this.privateScene;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return SceneScopeService;
+    SceneProvider.prototype.getScene = function (id) {
+        var scene = this.scenes.get(id);
+        if (scene == null) {
+            scene = new three_1.Scene();
+            this.scenes.set(id, scene);
+        }
+        return scene;
+    };
+    return SceneProvider;
 }());
-SceneScopeService = __decorate([
+SceneProvider = __decorate([
     core_1.Injectable()
-], SceneScopeService);
-exports.SceneScopeService = SceneScopeService;
-//# sourceMappingURL=scene-scope.service.js.map
+], SceneProvider);
+exports.SceneProvider = SceneProvider;
+//# sourceMappingURL=scene-provider.service.js.map

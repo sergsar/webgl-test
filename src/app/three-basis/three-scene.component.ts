@@ -1,7 +1,7 @@
 import {Component, AfterContentInit, ContentChild} from '@angular/core';
 import {BoxGeometry, Mesh, MeshBasicMaterial, Scene} from 'three';
 import {ThreeCameraComponent} from './three-camera.component';
-import {SceneScopeService} from './scene-scope.service';
+import {SceneProvider} from './scene-provider.service';
 
 @Component({ selector: 'three-scene', templateUrl: './three-scene.component.html' })
 export class ThreeSceneComponent implements AfterContentInit {
@@ -14,10 +14,10 @@ export class ThreeSceneComponent implements AfterContentInit {
     @ContentChild(ThreeCameraComponent)
     threeCameraComponent: ThreeCameraComponent;
 
-    constructor(private sceneScopeService: SceneScopeService) {}
+    constructor(private sceneProvider: SceneProvider) {}
 
     public ngAfterContentInit() {
-        this.scene = this.sceneScopeService.scene;
+        this.scene = this.sceneProvider.getScene();
 
         this.boxGeometry = new BoxGeometry(1, 1, 1);
         this.basicMaterial = new MeshBasicMaterial({ color: 0x00ff00 });

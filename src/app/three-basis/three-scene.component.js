@@ -11,13 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var three_1 = require("three");
 var three_camera_component_1 = require("./three-camera.component");
-var scene_scope_service_1 = require("./scene-scope.service");
+var scene_provider_service_1 = require("./scene-provider.service");
 var ThreeSceneComponent = (function () {
-    function ThreeSceneComponent(sceneScopeService) {
-        this.sceneScopeService = sceneScopeService;
+    function ThreeSceneComponent(sceneProvider) {
+        this.sceneProvider = sceneProvider;
     }
     ThreeSceneComponent.prototype.ngAfterContentInit = function () {
-        this.scene = this.sceneScopeService.scene;
+        this.scene = this.sceneProvider.getScene();
         this.boxGeometry = new three_1.BoxGeometry(1, 1, 1);
         this.basicMaterial = new three_1.MeshBasicMaterial({ color: 0x00ff00 });
         this.mesh = new three_1.Mesh(this.boxGeometry, this.basicMaterial);
@@ -31,7 +31,7 @@ __decorate([
 ], ThreeSceneComponent.prototype, "threeCameraComponent", void 0);
 ThreeSceneComponent = __decorate([
     core_1.Component({ selector: 'three-scene', templateUrl: './three-scene.component.html' }),
-    __metadata("design:paramtypes", [scene_scope_service_1.SceneScopeService])
+    __metadata("design:paramtypes", [scene_provider_service_1.SceneProvider])
 ], ThreeSceneComponent);
 exports.ThreeSceneComponent = ThreeSceneComponent;
 //# sourceMappingURL=three-scene.component.js.map
