@@ -15,6 +15,6 @@ export class ThreeAreaComponent implements AfterContentInit {
 
     private animate() {
         this.ngZone.runOutsideAngular(() => requestAnimationFrame(() => this.animate()));
-        this.threeRendererComponents.first.render();
+        this.threeRendererComponents.forEach(p => p.render());
     }
 }

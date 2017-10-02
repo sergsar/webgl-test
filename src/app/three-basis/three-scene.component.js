@@ -15,14 +15,12 @@ var scene_provider_service_1 = require("./scene-provider.service");
 var ThreeSceneComponent = (function () {
     function ThreeSceneComponent(sceneProvider) {
         this.sceneProvider = sceneProvider;
-    }
-    ThreeSceneComponent.prototype.ngAfterContentInit = function () {
         this.scene = this.sceneProvider.getScene();
         this.boxGeometry = new three_1.BoxGeometry(1, 1, 1);
         this.basicMaterial = new three_1.MeshBasicMaterial({ color: 0x00ff00 });
         this.mesh = new three_1.Mesh(this.boxGeometry, this.basicMaterial);
         this.scene.add(this.mesh);
-    };
+    }
     return ThreeSceneComponent;
 }());
 __decorate([

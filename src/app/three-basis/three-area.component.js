@@ -20,7 +20,7 @@ var ThreeAreaComponent = (function () {
     ThreeAreaComponent.prototype.animate = function () {
         var _this = this;
         this.ngZone.runOutsideAngular(function () { return requestAnimationFrame(function () { return _this.animate(); }); });
-        this.threeRendererComponents.first.render();
+        this.threeRendererComponents.forEach(function (p) { return p.render(); });
     };
     return ThreeAreaComponent;
 }());

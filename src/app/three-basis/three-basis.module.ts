@@ -6,7 +6,8 @@ import {ThreeCameraComponent} from './three-camera.component';
 import {ThreeAreaComponent} from './three-area.component';
 import {RendererProvider} from './renderer-provider.service';
 import {CameraProvider} from './camera-provider.service';
-import {SceneProvider} from "./scene-provider.service";
+import {SceneProvider} from './scene-provider.service';
+import {ThreeCameraOrbitControlComponent} from './three-camera-orbit-control.component';
 
 @NgModule({
     imports: [],
@@ -14,13 +15,15 @@ import {SceneProvider} from "./scene-provider.service";
         ThreeAreaComponent,
         ThreeRendererComponent,
         ThreeSceneComponent,
-        ThreeCameraComponent
+        ThreeCameraComponent,
+        ThreeCameraOrbitControlComponent
     ],
     exports: [
         ThreeAreaComponent,
         ThreeRendererComponent,
         ThreeSceneComponent,
-        ThreeCameraComponent
+        ThreeCameraComponent,
+        ThreeCameraOrbitControlComponent
     ],
     providers: [
         RendererProvider,

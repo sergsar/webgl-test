@@ -13,6 +13,7 @@ var three_area_component_1 = require("./three-area.component");
 var renderer_provider_service_1 = require("./renderer-provider.service");
 var camera_provider_service_1 = require("./camera-provider.service");
 var scene_provider_service_1 = require("./scene-provider.service");
+var three_camera_orbit_control_component_1 = require("./three-camera-orbit-control.component");
 var ThreeBasisModule = (function () {
     function ThreeBasisModule() {
     }
@@ -25,13 +26,15 @@ ThreeBasisModule = __decorate([
             three_area_component_1.ThreeAreaComponent,
             three_renderer_component_1.ThreeRendererComponent,
             three_scene_component_1.ThreeSceneComponent,
-            three_camera_component_1.ThreeCameraComponent
+            three_camera_component_1.ThreeCameraComponent,
+            three_camera_orbit_control_component_1.ThreeCameraOrbitControlComponent
         ],
         exports: [
             three_area_component_1.ThreeAreaComponent,
             three_renderer_component_1.ThreeRendererComponent,
             three_scene_component_1.ThreeSceneComponent,
-            three_camera_component_1.ThreeCameraComponent
+            three_camera_component_1.ThreeCameraComponent,
+            three_camera_orbit_control_component_1.ThreeCameraOrbitControlComponent
         ],
         providers: [
             renderer_provider_service_1.RendererProvider,

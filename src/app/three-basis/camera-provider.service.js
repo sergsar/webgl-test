@@ -6,11 +6,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
+var three_1 = require("three");
 var CameraProvider = (function () {
     function CameraProvider() {
         this.cameras = new Map();
     }
     CameraProvider.prototype.getCamera = function (fn, id) {
+        if (fn == null) {
+            fn = function () { return new three_1.PerspectiveCamera(); };
+        }
         var camera = this.cameras.get(id);
         if (camera == null) {
             camera = fn();

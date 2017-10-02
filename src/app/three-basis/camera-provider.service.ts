@@ -5,7 +5,10 @@ import {PerspectiveCamera} from 'three';
 export class CameraProvider {
     private cameras: Map<string, PerspectiveCamera> = new Map();
 
-    public getCamera(fn: () => PerspectiveCamera, id?: string): PerspectiveCamera {
+    public getCamera(fn?: () => PerspectiveCamera, id?: string): PerspectiveCamera {
+        if (fn == null) {
+            fn = () => new PerspectiveCamera();
+        }
 
         let camera = this.cameras.get(id);
 
