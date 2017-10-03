@@ -8,6 +8,7 @@ import {RendererProvider} from './renderer-provider.service';
 import {CameraProvider} from './camera-provider.service';
 import {SceneProvider} from './scene-provider.service';
 import {ThreeCameraOrbitControlComponent} from './three-camera-orbit-control.component';
+import {AnimateProvider} from './animate-provider.service';
 
 @NgModule({
     imports: [],
@@ -26,6 +27,7 @@ import {ThreeCameraOrbitControlComponent} from './three-camera-orbit-control.com
         ThreeCameraOrbitControlComponent
     ],
     providers: [
+        AnimateProvider,
         RendererProvider,
         CameraProvider,
         SceneProvider

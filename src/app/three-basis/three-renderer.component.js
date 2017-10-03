@@ -11,20 +11,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var three_scene_component_1 = require("./three-scene.component");
 var renderer_provider_service_1 = require("./renderer-provider.service");
+var animate_provider_service_1 = require("./animate-provider.service");
 var ThreeRendererComponent = (function () {
-    function ThreeRendererComponent(rendererProvider) {
+    function ThreeRendererComponent(animateProvider, rendererProvider) {
+        this.animateProvider = animateProvider;
         this.rendererProvider = rendererProvider;
         this.height = 500;
         this.width = 800;
     }
     ThreeRendererComponent.prototype.ngAfterContentInit = function () {
+        var _this = this;
         this.renderer = this.rendererProvider.getRenderer({ canvas: this.canvas.nativeElement });
         this.renderer.setSize(this.width, this.height);
-    };
-    ThreeRendererComponent.prototype.render = function () {
         var scene = this.threeSceneComponent.scene;
         var camera = this.threeSceneComponent.threeCameraComponent.camera;
-        this.renderer.render(scene, camera);
+        var animateTask = function () { return _this.renderer.render(scene, camera); };
+        this.animateProvider.setFrameTask(this, animateTask);
     };
     return ThreeRendererComponent;
 }());
@@ -46,7 +48,7 @@ __decorate([
 ], ThreeRendererComponent.prototype, "threeSceneComponent", void 0);
 ThreeRendererComponent = __decorate([
     core_1.Component({ selector: 'three-renderer', templateUrl: './three-renderer.component.html' }),
-    __metadata("design:paramtypes", [renderer_provider_service_1.RendererProvider])
+    __metadata("design:paramtypes", [animate_provider_service_1.AnimateProvider, renderer_provider_service_1.RendererProvider])
 ], ThreeRendererComponent);
 exports.ThreeRendererComponent = ThreeRendererComponent;
 //# sourceMappingURL=three-renderer.component.js.map

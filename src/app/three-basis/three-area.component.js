@@ -11,17 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var three_renderer_component_1 = require("./three-renderer.component");
 var ThreeAreaComponent = (function () {
-    function ThreeAreaComponent(ngZone) {
-        this.ngZone = ngZone;
+    function ThreeAreaComponent() {
     }
-    ThreeAreaComponent.prototype.ngAfterContentInit = function () {
-        this.animate();
-    };
-    ThreeAreaComponent.prototype.animate = function () {
-        var _this = this;
-        this.ngZone.runOutsideAngular(function () { return requestAnimationFrame(function () { return _this.animate(); }); });
-        this.threeRendererComponents.forEach(function (p) { return p.render(); });
-    };
     return ThreeAreaComponent;
 }());
 __decorate([
@@ -29,8 +20,7 @@ __decorate([
     __metadata("design:type", core_1.QueryList)
 ], ThreeAreaComponent.prototype, "threeRendererComponents", void 0);
 ThreeAreaComponent = __decorate([
-    core_1.Component({ selector: 'three-area', template: "<ng-content></ng-content>" }),
-    __metadata("design:paramtypes", [core_1.NgZone])
+    core_1.Component({ selector: 'three-area', template: "<ng-content></ng-content>" })
 ], ThreeAreaComponent);
 exports.ThreeAreaComponent = ThreeAreaComponent;
 //# sourceMappingURL=three-area.component.js.map

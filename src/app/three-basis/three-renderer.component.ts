@@ -2,6 +2,7 @@ import {Component, Input, AfterContentInit, ViewChild, ContentChild } from '@ang
 import {WebGLRenderer} from 'three';
 import {ThreeSceneComponent} from './three-scene.component';
 import {RendererProvider} from './renderer-provider.service';
+import {AnimateProvider} from './animate-provider.service';
 
 @Component({ selector: 'three-renderer', templateUrl: './three-renderer.component.html' })
 export class  ThreeRendererComponent implements AfterContentInit {
@@ -19,16 +20,16 @@ export class  ThreeRendererComponent implements AfterContentInit {
     @ContentChild(ThreeSceneComponent)
     threeSceneComponent: ThreeSceneComponent;
 
-    constructor(private rendererProvider: RendererProvider) {}
+    constructor(private animateProvider: AnimateProvider, private rendererProvider: RendererProvider) {}
 
     public ngAfterContentInit() {
         this.renderer = this.rendererProvider.getRenderer({ canvas: this.canvas.nativeElement });
         this.renderer.setSize(this.width, this.height);
-    }
 
-    public render() {
         let scene = this.threeSceneComponent.scene;
         let camera = this.threeSceneComponent.threeCameraComponent.camera;
-        this.renderer.render(scene, camera);
+
+        let animateTask = () => this.renderer.render(scene, camera);
+        this.animateProvider.setFrameTask(this, animateTask);
     }
 }
