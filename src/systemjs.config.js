@@ -27,7 +27,7 @@
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
       'three': 'npm:three/build/three.js',
-      'three-orbit-controls': 'npm:three-orbit-controls/index.js'
+      'threejs': 'npm:three/examples/js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -43,11 +43,11 @@
         defaultExtension: 'js'
       },
       three: {
-        defaultExtension: 'js'
+        defaultExtension: 'js',
       },
-      // three-orbit-controls: {
-      //   defaultExtension: 'js'
-      // }
+      threejs: {
+        defaultExtension: 'js'
+      }
     }
   });
 })(this);

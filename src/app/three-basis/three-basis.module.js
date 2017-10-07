@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var three_renderer_component_1 = require("./three-renderer.component");
 var three_scene_component_1 = require("./three-scene.component");
-var three_camera_component_1 = require("./three-camera.component");
+var three_perspective_camera_component_1 = require("./three-perspective-camera.component");
 var three_area_component_1 = require("./three-area.component");
 var renderer_provider_service_1 = require("./renderer-provider.service");
 var camera_provider_service_1 = require("./camera-provider.service");
@@ -27,14 +27,14 @@ ThreeBasisModule = __decorate([
             three_area_component_1.ThreeAreaComponent,
             three_renderer_component_1.ThreeRendererComponent,
             three_scene_component_1.ThreeSceneComponent,
-            three_camera_component_1.ThreeCameraComponent,
+            three_perspective_camera_component_1.ThreePerspectiveCameraComponent,
             three_camera_orbit_control_component_1.ThreeCameraOrbitControlComponent
         ],
         exports: [
             three_area_component_1.ThreeAreaComponent,
             three_renderer_component_1.ThreeRendererComponent,
             three_scene_component_1.ThreeSceneComponent,
-            three_camera_component_1.ThreeCameraComponent,
+            three_perspective_camera_component_1.ThreePerspectiveCameraComponent,
             three_camera_orbit_control_component_1.ThreeCameraOrbitControlComponent
         ],
         providers: [

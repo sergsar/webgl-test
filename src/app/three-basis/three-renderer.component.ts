@@ -27,9 +27,9 @@ export class  ThreeRendererComponent implements AfterContentInit {
         this.renderer.setSize(this.width, this.height);
 
         let scene = this.threeSceneComponent.scene;
-        let camera = this.threeSceneComponent.threeCameraComponent.camera;
+        let perspectiveCamera = this.threeSceneComponent.threePerspectiveCameraComponent.perspectiveCamera;
 
-        let animateTask = () => this.renderer.render(scene, camera);
+        let animateTask = () => this.renderer.render(scene, perspectiveCamera);
         this.animateProvider.setFrameTask(this, animateTask);
     }
 }

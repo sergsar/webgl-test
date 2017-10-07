@@ -24,8 +24,8 @@ var ThreeRendererComponent = (function () {
         this.renderer = this.rendererProvider.getRenderer({ canvas: this.canvas.nativeElement });
         this.renderer.setSize(this.width, this.height);
         var scene = this.threeSceneComponent.scene;
-        var camera = this.threeSceneComponent.threeCameraComponent.camera;
-        var animateTask = function () { return _this.renderer.render(scene, camera); };
+        var perspectiveCamera = this.threeSceneComponent.threePerspectiveCameraComponent.perspectiveCamera;
+        var animateTask = function () { return _this.renderer.render(scene, perspectiveCamera); };
         this.animateProvider.setFrameTask(this, animateTask);
     };
     return ThreeRendererComponent;

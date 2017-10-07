@@ -9,18 +9,18 @@ var core_1 = require("@angular/core");
 var three_1 = require("three");
 var CameraProvider = (function () {
     function CameraProvider() {
-        this.cameras = new Map();
+        this.perspectiveCameras = new Map();
     }
-    CameraProvider.prototype.getCamera = function (fn, id) {
+    CameraProvider.prototype.getPerspectiveCamera = function (fn, id) {
         if (fn == null) {
             fn = function () { return new three_1.PerspectiveCamera(); };
         }
-        var camera = this.cameras.get(id);
-        if (camera == null) {
-            camera = fn();
-            this.cameras.set(id, camera);
+        var perspectiveCamera = this.perspectiveCameras.get(id);
+        if (perspectiveCamera == null) {
+            perspectiveCamera = fn();
+            this.perspectiveCameras.set(id, perspectiveCamera);
         }
-        return camera;
+        return perspectiveCamera;
     };
     return CameraProvider;
 }());

@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var three_1 = require("three");
-var three_camera_component_1 = require("./three-camera.component");
+var three_perspective_camera_component_1 = require("./three-perspective-camera.component");
 var scene_provider_service_1 = require("./scene-provider.service");
 var ThreeSceneComponent = (function () {
     function ThreeSceneComponent(sceneProvider) {
@@ -24,9 +24,9 @@ var ThreeSceneComponent = (function () {
     return ThreeSceneComponent;
 }());
 __decorate([
-    core_1.ContentChild(three_camera_component_1.ThreeCameraComponent),
-    __metadata("design:type", three_camera_component_1.ThreeCameraComponent)
-], ThreeSceneComponent.prototype, "threeCameraComponent", void 0);
+    core_1.ContentChild(three_perspective_camera_component_1.ThreePerspectiveCameraComponent),
+    __metadata("design:type", three_perspective_camera_component_1.ThreePerspectiveCameraComponent)
+], ThreeSceneComponent.prototype, "threePerspectiveCameraComponent", void 0);
 ThreeSceneComponent = __decorate([
     core_1.Component({ selector: 'three-scene', templateUrl: './three-scene.component.html' }),
     __metadata("design:paramtypes", [scene_provider_service_1.SceneProvider])

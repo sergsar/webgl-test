@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 
 import {ThreeRendererComponent} from './three-renderer.component';
 import {ThreeSceneComponent} from './three-scene.component';
-import {ThreeCameraComponent} from './three-camera.component';
+import {ThreePerspectiveCameraComponent} from './three-perspective-camera.component';
 import {ThreeAreaComponent} from './three-area.component';
 import {RendererProvider} from './renderer-provider.service';
 import {CameraProvider} from './camera-provider.service';
@@ -16,14 +16,14 @@ import {AnimateProvider} from './animate-provider.service';
         ThreeAreaComponent,
         ThreeRendererComponent,
         ThreeSceneComponent,
-        ThreeCameraComponent,
+        ThreePerspectiveCameraComponent,
         ThreeCameraOrbitControlComponent
     ],
     exports: [
         ThreeAreaComponent,
         ThreeRendererComponent,
         ThreeSceneComponent,
-        ThreeCameraComponent,
+        ThreePerspectiveCameraComponent,
         ThreeCameraOrbitControlComponent
     ],
     providers: [

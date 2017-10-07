@@ -3,20 +3,20 @@ import {PerspectiveCamera} from 'three';
 
 @Injectable()
 export class CameraProvider {
-    private cameras: Map<string, PerspectiveCamera> = new Map();
+    private perspectiveCameras: Map<string, PerspectiveCamera> = new Map();
 
-    public getCamera(fn?: () => PerspectiveCamera, id?: string): PerspectiveCamera {
+    public getPerspectiveCamera(fn?: () => PerspectiveCamera, id?: string): PerspectiveCamera {
         if (fn == null) {
             fn = () => new PerspectiveCamera();
         }
 
-        let camera = this.cameras.get(id);
+        let perspectiveCamera = this.perspectiveCameras.get(id);
 
-        if (camera == null) {
-            camera = fn();
-            this.cameras.set(id, camera);
+        if (perspectiveCamera == null) {
+            perspectiveCamera = fn();
+            this.perspectiveCameras.set(id, perspectiveCamera);
         }
 
-        return camera;
+        return perspectiveCamera;
     }
 }

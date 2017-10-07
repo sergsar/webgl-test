@@ -1,6 +1,6 @@
 import {Component, ContentChild} from '@angular/core';
 import {BoxGeometry, Mesh, MeshBasicMaterial, Scene} from 'three';
-import {ThreeCameraComponent} from './three-camera.component';
+import {ThreePerspectiveCameraComponent} from './three-perspective-camera.component';
 import {SceneProvider} from './scene-provider.service';
 
 @Component({ selector: 'three-scene', templateUrl: './three-scene.component.html' })
@@ -11,8 +11,8 @@ export class ThreeSceneComponent {
 
     public scene: Scene;
 
-    @ContentChild(ThreeCameraComponent)
-    threeCameraComponent: ThreeCameraComponent;
+    @ContentChild(ThreePerspectiveCameraComponent)
+    threePerspectiveCameraComponent: ThreePerspectiveCameraComponent;
 
     constructor(private sceneProvider: SceneProvider) {
         this.scene = this.sceneProvider.getScene();
