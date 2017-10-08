@@ -9,6 +9,7 @@ import {CameraProvider} from './camera-provider.service';
 import {SceneProvider} from './scene-provider.service';
 import {CameraOrbitControlComponent} from './camera-orbit-control.component';
 import {AnimateProvider} from './animate-provider.service';
+import {BoxControlComponent} from './box-control.component';
 
 @NgModule({
     imports: [],
@@ -17,14 +18,16 @@ import {AnimateProvider} from './animate-provider.service';
         RendererComponent,
         SceneComponent,
         PerspectiveCameraComponent,
-        CameraOrbitControlComponent
+        CameraOrbitControlComponent,
+        BoxControlComponent
     ],
     exports: [
         ThreeAreaComponent,
         RendererComponent,
         SceneComponent,
         PerspectiveCameraComponent,
-        CameraOrbitControlComponent
+        CameraOrbitControlComponent,
+        BoxControlComponent
     ],
     providers: [
         AnimateProvider,

@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {CameraProvider} from './camera-provider.service';
-import 'threejs/controls/OrbitControls';
-import {OrbitControls} from 'three';
+import {OrbitControls} from 'three-orbitcontrols-ts';
 
 @Component({selector: 'camera-orbit-control', template: ''})
 export class CameraOrbitControlComponent {

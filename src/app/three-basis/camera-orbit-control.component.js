@@ -10,13 +10,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var camera_provider_service_1 = require("./camera-provider.service");
-require("threejs/controls/OrbitControls");
-var three_1 = require("three");
+var three_orbitcontrols_ts_1 = require("three-orbitcontrols-ts");
 var CameraOrbitControlComponent = (function () {
     function CameraOrbitControlComponent(cameraProvider) {
         this.cameraProvider = cameraProvider;
         var perspectiveCamera = this.cameraProvider.getPerspectiveCamera();
-        var controls = new three_1.OrbitControls(perspectiveCamera);
+        var controls = new three_orbitcontrols_ts_1.OrbitControls(perspectiveCamera);
         controls.addEventListener('change', function () { });
     }
     return CameraOrbitControlComponent;

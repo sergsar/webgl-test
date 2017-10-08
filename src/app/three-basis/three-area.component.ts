@@ -5,5 +5,5 @@ import {RendererComponent} from './renderer.component';
 export class ThreeAreaComponent {
 
     @ContentChildren(RendererComponent)
-    RendererComponents: QueryList<RendererComponent>;
+    RendererComponents: QueryList<RendererComponent> = new QueryList<RendererComponent>();
 }

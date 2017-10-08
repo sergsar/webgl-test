@@ -8,20 +8,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var three_1 = require("three");
 var core_1 = require("@angular/core");
-var renderer_component_1 = require("./renderer.component");
-var ThreeAreaComponent = (function () {
-    function ThreeAreaComponent() {
-        this.RendererComponents = new core_1.QueryList();
+var BoxControlComponent = (function () {
+    function BoxControlComponent() {
+        this.boxGeometry = new three_1.BoxGeometry(1, 1, 1);
+        this.basicMaterial = new three_1.MeshBasicMaterial({ color: 0x00ff00 });
+        this.object3D = new three_1.Mesh(this.boxGeometry, this.basicMaterial);
     }
-    return ThreeAreaComponent;
+    BoxControlComponent.prototype.getObject3D = function () {
+        return this.object3D;
+    };
+    return BoxControlComponent;
 }());
-__decorate([
-    core_1.ContentChildren(renderer_component_1.RendererComponent),
-    __metadata("design:type", core_1.QueryList)
-], ThreeAreaComponent.prototype, "RendererComponents", void 0);
-ThreeAreaComponent = __decorate([
-    core_1.Component({ selector: 'three-area', template: "<ng-content></ng-content>" })
-], ThreeAreaComponent);
-exports.ThreeAreaComponent = ThreeAreaComponent;
-//# sourceMappingURL=three-area.component.js.map
+BoxControlComponent = __decorate([
+    core_1.Component({ selector: 'box-control', template: '' }),
+    __metadata("design:paramtypes", [])
+], BoxControlComponent);
+exports.BoxControlComponent = BoxControlComponent;
+//# sourceMappingURL=box-control.component.js.map
