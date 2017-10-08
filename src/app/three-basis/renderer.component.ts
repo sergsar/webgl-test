@@ -1,11 +1,11 @@
 import {Component, Input, AfterContentInit, ViewChild, ContentChild } from '@angular/core';
 import {WebGLRenderer} from 'three';
-import {ThreeSceneComponent} from './three-scene.component';
+import {SceneComponent} from './scene.component';
 import {RendererProvider} from './renderer-provider.service';
 import {AnimateProvider} from './animate-provider.service';
 
-@Component({ selector: 'three-renderer', templateUrl: './three-renderer.component.html' })
-export class  ThreeRendererComponent implements AfterContentInit {
+@Component({ selector: 'renderer', templateUrl: './renderer.component.html' })
+export class  RendererComponent implements AfterContentInit {
     private renderer: WebGLRenderer;
 
     @Input()
@@ -17,8 +17,8 @@ export class  ThreeRendererComponent implements AfterContentInit {
     @ViewChild('canvas')
     private canvas: any;
 
-    @ContentChild(ThreeSceneComponent)
-    threeSceneComponent: ThreeSceneComponent;
+    @ContentChild(SceneComponent)
+    sceneComponent: SceneComponent;
 
     constructor(private animateProvider: AnimateProvider, private rendererProvider: RendererProvider) {}
 
@@ -26,8 +26,8 @@ export class  ThreeRendererComponent implements AfterContentInit {
         this.renderer = this.rendererProvider.getRenderer({ canvas: this.canvas.nativeElement });
         this.renderer.setSize(this.width, this.height);
 
-        let scene = this.threeSceneComponent.scene;
-        let perspectiveCamera = this.threeSceneComponent.threePerspectiveCameraComponent.perspectiveCamera;
+        let scene = this.sceneComponent.scene;
+        let perspectiveCamera = this.sceneComponent.perspectiveCameraComponent.perspectiveCamera;
 
         let animateTask = () => this.renderer.render(scene, perspectiveCamera);
         this.animateProvider.setFrameTask(this, animateTask);

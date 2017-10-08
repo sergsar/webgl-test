@@ -9,20 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var three_1 = require("three");
 var camera_provider_service_1 = require("./camera-provider.service");
-var ThreePerspectiveCameraComponent = (function () {
-    function ThreePerspectiveCameraComponent(cameraProvider) {
+require("threejs/controls/OrbitControls");
+var three_1 = require("three");
+var CameraOrbitControlComponent = (function () {
+    function CameraOrbitControlComponent(cameraProvider) {
         this.cameraProvider = cameraProvider;
-        var perspectiveCameraSetupFn = function () { return new three_1.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000); };
-        this.perspectiveCamera = this.cameraProvider.getPerspectiveCamera(perspectiveCameraSetupFn);
-        this.perspectiveCamera.position.z = 5;
+        var perspectiveCamera = this.cameraProvider.getPerspectiveCamera();
+        var controls = new three_1.OrbitControls(perspectiveCamera);
+        controls.addEventListener('change', function () { });
     }
-    return ThreePerspectiveCameraComponent;
+    return CameraOrbitControlComponent;
 }());
-ThreePerspectiveCameraComponent = __decorate([
-    core_1.Component({ selector: 'three-perspective-camera', template: '<ng-content></ng-content>' }),
+CameraOrbitControlComponent = __decorate([
+    core_1.Component({ selector: 'camera-orbit-control', template: '' }),
     __metadata("design:paramtypes", [camera_provider_service_1.CameraProvider])
-], ThreePerspectiveCameraComponent);
-exports.ThreePerspectiveCameraComponent = ThreePerspectiveCameraComponent;
-//# sourceMappingURL=three-perspective-camera.component.js.map
+], CameraOrbitControlComponent);
+exports.CameraOrbitControlComponent = CameraOrbitControlComponent;
+//# sourceMappingURL=camera-orbit-control.component.js.map

@@ -2,8 +2,8 @@ import {Component} from '@angular/core';
 import {PerspectiveCamera} from 'three';
 import {CameraProvider} from './camera-provider.service';
 
-@Component({selector: 'three-perspective-camera', template: '<ng-content></ng-content>'})
-export class ThreePerspectiveCameraComponent {
+@Component({selector: 'perspective-camera', template: '<ng-content></ng-content>'})
+export class PerspectiveCameraComponent {
 
     public perspectiveCamera: PerspectiveCamera;
 

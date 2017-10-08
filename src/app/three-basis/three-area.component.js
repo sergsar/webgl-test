@@ -9,16 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var three_renderer_component_1 = require("./three-renderer.component");
+var renderer_component_1 = require("./renderer.component");
 var ThreeAreaComponent = (function () {
     function ThreeAreaComponent() {
     }
     return ThreeAreaComponent;
 }());
 __decorate([
-    core_1.ContentChildren(three_renderer_component_1.ThreeRendererComponent),
+    core_1.ContentChildren(renderer_component_1.RendererComponent),
     __metadata("design:type", core_1.QueryList)
-], ThreeAreaComponent.prototype, "threeRendererComponents", void 0);
+], ThreeAreaComponent.prototype, "RendererComponents", void 0);
 ThreeAreaComponent = __decorate([
     core_1.Component({ selector: 'three-area', template: "<ng-content></ng-content>" })
 ], ThreeAreaComponent);

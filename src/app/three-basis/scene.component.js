@@ -10,10 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var three_1 = require("three");
-var three_perspective_camera_component_1 = require("./three-perspective-camera.component");
+var perspective_camera_component_1 = require("./perspective-camera.component");
 var scene_provider_service_1 = require("./scene-provider.service");
-var ThreeSceneComponent = (function () {
-    function ThreeSceneComponent(sceneProvider) {
+var SceneComponent = (function () {
+    function SceneComponent(sceneProvider) {
         this.sceneProvider = sceneProvider;
         this.scene = this.sceneProvider.getScene();
         this.boxGeometry = new three_1.BoxGeometry(1, 1, 1);
@@ -21,15 +21,15 @@ var ThreeSceneComponent = (function () {
         this.mesh = new three_1.Mesh(this.boxGeometry, this.basicMaterial);
         this.scene.add(this.mesh);
     }
-    return ThreeSceneComponent;
+    return SceneComponent;
 }());
 __decorate([
-    core_1.ContentChild(three_perspective_camera_component_1.ThreePerspectiveCameraComponent),
-    __metadata("design:type", three_perspective_camera_component_1.ThreePerspectiveCameraComponent)
-], ThreeSceneComponent.prototype, "threePerspectiveCameraComponent", void 0);
-ThreeSceneComponent = __decorate([
-    core_1.Component({ selector: 'three-scene', templateUrl: './three-scene.component.html' }),
+    core_1.ContentChild(perspective_camera_component_1.PerspectiveCameraComponent),
+    __metadata("design:type", perspective_camera_component_1.PerspectiveCameraComponent)
+], SceneComponent.prototype, "perspectiveCameraComponent", void 0);
+SceneComponent = __decorate([
+    core_1.Component({ selector: 'scene', templateUrl: './scene.component.html' }),
     __metadata("design:paramtypes", [scene_provider_service_1.SceneProvider])
-], ThreeSceneComponent);
-exports.ThreeSceneComponent = ThreeSceneComponent;
-//# sourceMappingURL=three-scene.component.js.map
+], SceneComponent);
+exports.SceneComponent = SceneComponent;
+//# sourceMappingURL=scene.component.js.map
