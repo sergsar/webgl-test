@@ -20,7 +20,7 @@ var DirectLightComponent = DirectLightComponent_1 = (function (_super) {
     __extends(DirectLightComponent, _super);
     function DirectLightComponent() {
         var _this = _super.call(this) || this;
-        _this.directionalLight = new three_1.DirectionalLight(0xFFFFFF);
+        _this.directionalLight = new three_1.DirectionalLight(0x606060);
         _this.directionalLight.position.set(1, 1, 1);
         _this.object3D = _this.directionalLight;
         return _this;

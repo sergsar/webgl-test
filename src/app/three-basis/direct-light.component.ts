@@ -12,7 +12,7 @@ export class DirectLightComponent extends ObjectThreeDComponent {
     constructor() {
         super();
 
-        this.directionalLight = new DirectionalLight(0xFFFFFF);
+        this.directionalLight = new DirectionalLight(0x606060);
         this.directionalLight.position.set(1, 1, 1);
 
         this.object3D = this.directionalLight;
