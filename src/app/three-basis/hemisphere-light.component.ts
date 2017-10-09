@@ -12,7 +12,7 @@ export class HemisphereLightComponent extends ObjectThreeDComponent {
   constructor() {
     super();
 
-    this.hemisphereLight = new HemisphereLight(0x606060, 0x404040);
+    this.hemisphereLight = new HemisphereLight(0x606090, 0x404040);
 
     this.object3D = this.hemisphereLight;
   }

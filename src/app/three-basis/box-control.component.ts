@@ -20,7 +20,7 @@ export class BoxControlComponent extends ObjectThreeDComponent {
         this.boxGeometry = new BoxGeometry(1 , 1, 1);
         this.meshBasicMaterial = new MeshBasicMaterial({color: 0x00ff00});
         this.meshPhongMaterial = new MeshPhongMaterial({color: 0x00ff00, specular: 0x050505});
-        this.meshLambertMaterial = new MeshLambertMaterial({color: Math.random() * 0xffffff});
+        this.meshLambertMaterial = new MeshLambertMaterial({color: 0x00ff00});
         this.object3D = new Mesh(this.boxGeometry, this.meshLambertMaterial);
     }
 }

@@ -20,7 +20,7 @@ var HemisphereLightComponent = HemisphereLightComponent_1 = (function (_super) {
     __extends(HemisphereLightComponent, _super);
     function HemisphereLightComponent() {
         var _this = _super.call(this) || this;
-        _this.hemisphereLight = new three_1.HemisphereLight(0x606060, 0x404040);
+        _this.hemisphereLight = new three_1.HemisphereLight(0x606090, 0x404040);
         _this.object3D = _this.hemisphereLight;
         return _this;
     }
