@@ -11,16 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var perspective_camera_component_1 = require("./perspective-camera.component");
 var scene_provider_service_1 = require("./scene-provider.service");
-var box_control_component_1 = require("./box-control.component");
+var object_three_d_component_1 = require("./object-three-d.component");
 var SceneComponent = (function () {
     function SceneComponent(sceneProvider) {
         this.sceneProvider = sceneProvider;
-        this.ngComponents = new core_1.QueryList();
+        this.objectThreeDComponents = new core_1.QueryList();
         this.scene = this.sceneProvider.getScene();
     }
     SceneComponent.prototype.ngAfterContentInit = function () {
         var _this = this;
-        this.ngComponents.forEach(function (p) { return _this.scene.add(p.getObject3D()); });
+        this.objectThreeDComponents.forEach(function (p) { return _this.scene.add(p.getObject3D()); });
     };
     return SceneComponent;
 }());
@@ -29,9 +29,9 @@ __decorate([
     __metadata("design:type", perspective_camera_component_1.PerspectiveCameraComponent)
 ], SceneComponent.prototype, "perspectiveCameraComponent", void 0);
 __decorate([
-    core_1.ContentChildren(box_control_component_1.BoxControlComponent),
+    core_1.ContentChildren(object_three_d_component_1.ObjectThreeDComponent),
     __metadata("design:type", core_1.QueryList)
-], SceneComponent.prototype, "ngComponents", void 0);
+], SceneComponent.prototype, "objectThreeDComponents", void 0);
 SceneComponent = __decorate([
     core_1.Component({ selector: 'scene', templateUrl: './scene.component.html' }),
     __metadata("design:paramtypes", [scene_provider_service_1.SceneProvider])

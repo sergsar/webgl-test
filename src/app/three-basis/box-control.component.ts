@@ -1,21 +1,22 @@
-import {BoxGeometry, Mesh, MeshBasicMaterial, Object3D} from 'three';
-import {Component} from '@angular/core';
+import {BoxGeometry, Mesh, MeshBasicMaterial} from 'three';
+import {Component, forwardRef} from '@angular/core';
+import {ObjectThreeDComponent} from './object-three-d.component';
 
-@Component({selector: 'box-control', template: ''})
-export class BoxControlComponent {
+@Component({
+    selector: 'box-control',
+    template: '',
+    providers: [{provide: ObjectThreeDComponent, useExisting: forwardRef(() => BoxControlComponent) }]
+})
+export class BoxControlComponent extends ObjectThreeDComponent {
     private boxGeometry: BoxGeometry;
     private basicMaterial: MeshBasicMaterial;
 
-    private object3D: Object3D;
-
 
     constructor() {
+        super();
+
         this.boxGeometry = new BoxGeometry(1 , 1, 1);
         this.basicMaterial = new MeshBasicMaterial({color: 0x00ff00});
         this.object3D = new Mesh(this.boxGeometry, this.basicMaterial);
-    }
-
-    public getObject3D(): Object3D {
-        return this.object3D;
     }
 }
