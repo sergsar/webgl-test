@@ -4,6 +4,7 @@ import {RendererComponent} from './renderer.component';
 import {SceneComponent} from './scene.component';
 import {PerspectiveCameraComponent} from './perspective-camera.component';
 import {ThreeAreaComponent} from './three-area.component';
+import {DirectLightComponent} from './direct-light.component';
 import {RendererProvider} from './renderer-provider.service';
 import {CameraProvider} from './camera-provider.service';
 import {SceneProvider} from './scene-provider.service';
@@ -15,6 +16,7 @@ import {BoxControlComponent} from './box-control.component';
     imports: [],
     declarations: [
         ThreeAreaComponent,
+        DirectLightComponent,
         RendererComponent,
         SceneComponent,
         PerspectiveCameraComponent,
@@ -23,6 +25,7 @@ import {BoxControlComponent} from './box-control.component';
     ],
     exports: [
         ThreeAreaComponent,
+        DirectLightComponent,
         RendererComponent,
         SceneComponent,
         PerspectiveCameraComponent,

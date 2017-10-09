@@ -13,28 +13,30 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var three_1 = require("three");
 var core_1 = require("@angular/core");
+var three_1 = require("three");
 var object_three_d_component_1 = require("./object-three-d.component");
-var BoxControlComponent = BoxControlComponent_1 = (function (_super) {
-    __extends(BoxControlComponent, _super);
-    function BoxControlComponent() {
+var DirectLightComponent = DirectLightComponent_1 = (function (_super) {
+    __extends(DirectLightComponent, _super);
+    function DirectLightComponent() {
         var _this = _super.call(this) || this;
-        _this.boxGeometry = new three_1.BoxGeometry(1, 1, 1);
-        _this.meshPhongMaterial = new three_1.MeshPhongMaterial({ color: 0x00ff00, specular: 0x050505 });
-        _this.object3D = new three_1.Mesh(_this.boxGeometry, _this.meshPhongMaterial);
+        _this.directionalLight = new three_1.DirectionalLight(0xFFFFFF, 1);
+        _this.directionalLight.color.setHSL(0.1, 1, 0.95);
+        _this.directionalLight.position.set(0, 10, 0);
+        _this.directionalLight.position.multiplyScalar(30);
+        _this.object3D = _this.directionalLight;
         return _this;
     }
-    return BoxControlComponent;
+    return DirectLightComponent;
 }(object_three_d_component_1.ObjectThreeDComponent));
-BoxControlComponent = BoxControlComponent_1 = __decorate([
+DirectLightComponent = DirectLightComponent_1 = __decorate([
     core_1.Component({
-        selector: 'box-control',
+        selector: 'direct-light',
         template: '',
-        providers: [{ provide: object_three_d_component_1.ObjectThreeDComponent, useExisting: core_1.forwardRef(function () { return BoxControlComponent_1; }) }]
+        providers: [{ provide: object_three_d_component_1.ObjectThreeDComponent, useExisting: core_1.forwardRef(function () { return DirectLightComponent_1; }) }]
     }),
     __metadata("design:paramtypes", [])
-], BoxControlComponent);
-exports.BoxControlComponent = BoxControlComponent;
-var BoxControlComponent_1;
-//# sourceMappingURL=box-control.component.js.map
+], DirectLightComponent);
+exports.DirectLightComponent = DirectLightComponent;
+var DirectLightComponent_1;
+//# sourceMappingURL=direct-light.component.js.map

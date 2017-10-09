@@ -10,6 +10,7 @@ var renderer_component_1 = require("./renderer.component");
 var scene_component_1 = require("./scene.component");
 var perspective_camera_component_1 = require("./perspective-camera.component");
 var three_area_component_1 = require("./three-area.component");
+var direct_light_component_1 = require("./direct-light.component");
 var renderer_provider_service_1 = require("./renderer-provider.service");
 var camera_provider_service_1 = require("./camera-provider.service");
 var scene_provider_service_1 = require("./scene-provider.service");
@@ -26,6 +27,7 @@ ThreeBasisModule = __decorate([
         imports: [],
         declarations: [
             three_area_component_1.ThreeAreaComponent,
+            direct_light_component_1.DirectLightComponent,
             renderer_component_1.RendererComponent,
             scene_component_1.SceneComponent,
             perspective_camera_component_1.PerspectiveCameraComponent,
@@ -34,6 +36,7 @@ ThreeBasisModule = __decorate([
         ],
         exports: [
             three_area_component_1.ThreeAreaComponent,
+            direct_light_component_1.DirectLightComponent,
             renderer_component_1.RendererComponent,
             scene_component_1.SceneComponent,
             perspective_camera_component_1.PerspectiveCameraComponent,
