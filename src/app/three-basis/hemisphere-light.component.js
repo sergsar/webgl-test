@@ -16,25 +16,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var three_1 = require("three");
 var object_three_d_component_1 = require("./object-three-d.component");
-var DirectLightComponent = DirectLightComponent_1 = (function (_super) {
-    __extends(DirectLightComponent, _super);
-    function DirectLightComponent() {
+var HemisphereLightComponent = HemisphereLightComponent_1 = (function (_super) {
+    __extends(HemisphereLightComponent, _super);
+    function HemisphereLightComponent() {
         var _this = _super.call(this) || this;
-        _this.directionalLight = new three_1.DirectionalLight(0xFFFFFF);
-        _this.directionalLight.position.set(1, 1, 1);
-        _this.object3D = _this.directionalLight;
+        _this.hemisphereLight = new three_1.HemisphereLight(0x606060, 0x404040);
+        _this.object3D = _this.hemisphereLight;
         return _this;
     }
-    return DirectLightComponent;
+    return HemisphereLightComponent;
 }(object_three_d_component_1.ObjectThreeDComponent));
-DirectLightComponent = DirectLightComponent_1 = __decorate([
+HemisphereLightComponent = HemisphereLightComponent_1 = __decorate([
     core_1.Component({
-        selector: 'direct-light',
+        selector: 'hemisphere-light',
         template: '',
-        providers: [{ provide: object_three_d_component_1.ObjectThreeDComponent, useExisting: core_1.forwardRef(function () { return DirectLightComponent_1; }) }]
+        providers: [{ provide: object_three_d_component_1.ObjectThreeDComponent, useExisting: core_1.forwardRef(function () { return HemisphereLightComponent_1; }) }]
     }),
     __metadata("design:paramtypes", [])
-], DirectLightComponent);
-exports.DirectLightComponent = DirectLightComponent;
-var DirectLightComponent_1;
-//# sourceMappingURL=direct-light.component.js.map
+], HemisphereLightComponent);
+exports.HemisphereLightComponent = HemisphereLightComponent;
+var HemisphereLightComponent_1;
+//# sourceMappingURL=hemisphere-light.component.js.map

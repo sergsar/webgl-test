@@ -21,8 +21,10 @@ var BoxControlComponent = BoxControlComponent_1 = (function (_super) {
     function BoxControlComponent() {
         var _this = _super.call(this) || this;
         _this.boxGeometry = new three_1.BoxGeometry(1, 1, 1);
+        _this.meshBasicMaterial = new three_1.MeshBasicMaterial({ color: 0x00ff00 });
         _this.meshPhongMaterial = new three_1.MeshPhongMaterial({ color: 0x00ff00, specular: 0x050505 });
-        _this.object3D = new three_1.Mesh(_this.boxGeometry, _this.meshPhongMaterial);
+        _this.meshLambertMaterial = new three_1.MeshLambertMaterial({ color: Math.random() * 0xffffff });
+        _this.object3D = new three_1.Mesh(_this.boxGeometry, _this.meshLambertMaterial);
         return _this;
     }
     return BoxControlComponent;

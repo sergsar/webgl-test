@@ -1,4 +1,4 @@
-import {BoxGeometry, Mesh, MeshPhongMaterial} from 'three';
+import {BoxGeometry, Mesh, MeshBasicMaterial, MeshPhongMaterial, MeshLambertMaterial} from 'three';
 import {Component, forwardRef} from '@angular/core';
 import {ObjectThreeDComponent} from './object-three-d.component';
 
@@ -10,13 +10,17 @@ import {ObjectThreeDComponent} from './object-three-d.component';
 export class BoxControlComponent extends ObjectThreeDComponent {
     private boxGeometry: BoxGeometry;
     private meshPhongMaterial: MeshPhongMaterial;
+    private meshBasicMaterial: MeshBasicMaterial;
+    private meshLambertMaterial: MeshLambertMaterial;
 
 
     constructor() {
         super();
 
         this.boxGeometry = new BoxGeometry(1 , 1, 1);
+        this.meshBasicMaterial = new MeshBasicMaterial({color: 0x00ff00});
         this.meshPhongMaterial = new MeshPhongMaterial({color: 0x00ff00, specular: 0x050505});
-        this.object3D = new Mesh(this.boxGeometry, this.meshPhongMaterial);
+        this.meshLambertMaterial = new MeshLambertMaterial({color: Math.random() * 0xffffff});
+        this.object3D = new Mesh(this.boxGeometry, this.meshLambertMaterial);
     }
 }
