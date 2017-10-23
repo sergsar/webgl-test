@@ -3,10 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent }  from './app.component';
 import {ThreeBasisModule} from './three-basis/three-basis.module';
+import {DataProviderService} from './data.provider.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
-  imports:      [ BrowserModule, ThreeBasisModule ],
+  imports:      [ BrowserModule, ThreeBasisModule, HttpClientModule ],
   declarations: [ AppComponent ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  providers: [ DataProviderService ]
 })
 export class AppModule { }
