@@ -23,7 +23,10 @@ var DATACUBES = [
 ];
 var DataProviderService = (function () {
     function DataProviderService(httpClient) {
+        var _this = this;
         this.httpClient = httpClient;
+        this.httpClient.get('https://data.idvp.net/api/query/checkin2', { headers: new http_1.HttpHeaders().set('X-Tenant-Id', 'logus') }).subscribe(function (p) { _this.checkinData = p; console.log(typeof p); });
+        // console.log('json length: ' + this.checkinData.length);
     }
     Object.defineProperty(DataProviderService.prototype, "dataCubes", {
         get: function () {
@@ -40,8 +43,6 @@ var DataProviderService = (function () {
         configurable: true
     });
     DataProviderService.prototype.ngOnInit = function () {
-        var _this = this;
-        this.httpClient.get('https://data.idvp.net/api/query/checkin', { headers: new http_1.HttpHeaders().set('X-Tenant-Id', 'logus') }).subscribe(function (p) { return _this.checkinData = p['Guest']['Id']; });
     };
     return DataProviderService;
 }());

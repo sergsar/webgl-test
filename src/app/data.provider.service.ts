@@ -14,9 +14,15 @@ const DATACUBES: DataCube[] = [
 
 @Injectable()
 export class DataProviderService implements OnInit {
-    private checkinData: string;
+    private checkinData: Object;
 
-    constructor (private httpClient: HttpClient) {}
+    constructor (private httpClient: HttpClient) {
+        this.httpClient.get(
+            'https://data.idvp.net/api/query/checkin2',
+            {headers: new HttpHeaders().set('X-Tenant-Id', 'logus')}
+        ).subscribe(p => { this.checkinData = p; console.log(typeof p); });
+        // console.log('json length: ' + this.checkinData.length);
+    }
 
     get dataCubes() {
         return DATACUBES;
@@ -27,10 +33,7 @@ export class DataProviderService implements OnInit {
     }
 
     ngOnInit(): void {
-        this.httpClient.get(
-            'https://data.idvp.net/api/query/checkin',
-            {headers: new HttpHeaders().set('X-Tenant-Id', 'logus')}
-            ).subscribe(p => this.checkinData = p['Guest']['Id']);
+
     }
 
 
