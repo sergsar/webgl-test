@@ -10,34 +10,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
-var DataCube = (function () {
-    function DataCube() {
-    }
-    return DataCube;
-}());
-exports.DataCube = DataCube;
-var DATACUBES = [
-    { id: 1, size: 1.5 },
-    { id: 2, size: 1 },
-    { id: 3, size: 1.2 }
-];
 var DataProviderService = (function () {
     function DataProviderService(httpClient) {
-        var _this = this;
         this.httpClient = httpClient;
-        this.httpClient.get('https://data.idvp.net/api/query/checkin2', { headers: new http_1.HttpHeaders().set('X-Tenant-Id', 'logus') }).subscribe(function (p) { _this.checkinData = p; console.log(typeof p); });
-        // console.log('json length: ' + this.checkinData.length);
     }
-    Object.defineProperty(DataProviderService.prototype, "dataCubes", {
+    Object.defineProperty(DataProviderService.prototype, "lastName", {
         get: function () {
-            return DATACUBES;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(DataProviderService.prototype, "checkin", {
-        get: function () {
-            return this.checkinData;
+            return this.httpClient.get('https://data.idvp.net/api/query/checkin2', { headers: new http_1.HttpHeaders().set('X-Tenant-Id', 'logus') }).subscribe()['Guest']['LastName'];
         },
         enumerable: true,
         configurable: true

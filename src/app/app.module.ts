@@ -10,6 +10,6 @@ import {HttpClientModule} from '@angular/common/http';
   imports:      [ BrowserModule, ThreeBasisModule, HttpClientModule ],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [ DataProviderService ]
+  providers: [ DataProviderService ] // TODO: delete, only needed for dataprov tests
 })
 export class AppModule { }

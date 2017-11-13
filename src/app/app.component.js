@@ -13,7 +13,7 @@ var data_provider_service_1 = require("./data.provider.service");
 var AppComponent = (function () {
     function AppComponent(dataProviderService) {
         this.dataProviderService = dataProviderService;
-    }
+    } // TODO: delete, only needed for dataprov tests
     return AppComponent;
 }());
 AppComponent = __decorate([

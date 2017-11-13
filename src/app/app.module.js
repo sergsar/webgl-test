@@ -21,7 +21,7 @@ AppModule = __decorate([
         imports: [platform_browser_1.BrowserModule, three_basis_module_1.ThreeBasisModule, http_1.HttpClientModule],
         declarations: [app_component_1.AppComponent],
         bootstrap: [app_component_1.AppComponent],
-        providers: [data_provider_service_1.DataProviderService]
+        providers: [data_provider_service_1.DataProviderService] // TODO: delete, only needed for dataprov tests
     })
 ], AppModule);
 exports.AppModule = AppModule;
