@@ -1,20 +1,18 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
-export class DataProviderService implements OnInit {
+export class DataProviderService {
 
     constructor (private httpClient: HttpClient) { }
 
-    get lastName() {
+
+    public getObservable(datasetName: string): Observable<Object> {
         return         this.httpClient.get(
-            'https://data.idvp.net/api/query/checkin2',
+            'https://data.idvp.net/api/query/' + datasetName,
             {headers: new HttpHeaders().set('X-Tenant-Id', 'logus')}
-        ).subscribe()['Guest']['LastName'];
-    }
-
-    ngOnInit(): void {
-
+        );
     }
 
 

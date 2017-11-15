@@ -14,6 +14,10 @@ var AppComponent = (function () {
     function AppComponent(dataProviderService) {
         this.dataProviderService = dataProviderService;
     } // TODO: delete, only needed for dataprov tests
+    AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.dataProviderService.getObservable('checkin2').subscribe(function (p) { return _this.lastName = p['Guest']['LastName']; });
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([

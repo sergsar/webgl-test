@@ -14,14 +14,8 @@ var DataProviderService = (function () {
     function DataProviderService(httpClient) {
         this.httpClient = httpClient;
     }
-    Object.defineProperty(DataProviderService.prototype, "lastName", {
-        get: function () {
-            return this.httpClient.get('https://data.idvp.net/api/query/checkin2', { headers: new http_1.HttpHeaders().set('X-Tenant-Id', 'logus') }).subscribe()['Guest']['LastName'];
-        },
-        enumerable: true,
-        configurable: true
-    });
-    DataProviderService.prototype.ngOnInit = function () {
+    DataProviderService.prototype.getObservable = function (datasetName) {
+        return this.httpClient.get('https://data.idvp.net/api/query/' + datasetName, { headers: new http_1.HttpHeaders().set('X-Tenant-Id', 'logus') });
     };
     return DataProviderService;
 }());
