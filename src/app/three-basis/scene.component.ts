@@ -2,7 +2,7 @@ import {AfterContentInit, Component, ContentChild, ContentChildren, QueryList} f
 import {Scene} from 'three';
 import {PerspectiveCameraComponent} from './perspective-camera.component';
 import {SceneProvider} from './scene-provider.service';
-import {ObjectThreeDComponent} from './object-three-d.component';
+import {Object3dComponent} from './object3d.component';
 
 @Component({ selector: 'scene', templateUrl: './scene.component.html' })
 export class SceneComponent implements AfterContentInit {
@@ -12,8 +12,8 @@ export class SceneComponent implements AfterContentInit {
     @ContentChild(PerspectiveCameraComponent)
     perspectiveCameraComponent: PerspectiveCameraComponent;
 
-    @ContentChildren(ObjectThreeDComponent)
-    objectThreeDComponents: QueryList<ObjectThreeDComponent> = new QueryList<ObjectThreeDComponent>();
+    @ContentChildren(Object3dComponent)
+    object3dComponents: QueryList<Object3dComponent> = new QueryList<Object3dComponent>();
 
     constructor(private sceneProvider: SceneProvider) {
         this.scene = this.sceneProvider.getScene();
@@ -21,7 +21,7 @@ export class SceneComponent implements AfterContentInit {
     }
 
     ngAfterContentInit() {
-        this.objectThreeDComponents.forEach(p => this.scene.add(p.getObject3D()));
+        this.object3dComponents.forEach(p => this.scene.add(p.getObject3D()));
 
     }
 }
