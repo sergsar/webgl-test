@@ -3,11 +3,11 @@ import {DataProviderService} from './data.provider.service';
 
 @Component({ selector: 'my-app', templateUrl: './app.component.html' })
 export class AppComponent implements OnInit {
-    private lastName: string;
+    private data: Object;
 
-    constructor (private dataProviderService: DataProviderService) {} // TODO: delete, only needed for dataprov tests
+    constructor (private dataProviderService: DataProviderService) {} // TODO: delete, only needed for data tests
 
     ngOnInit() {
-        this.dataProviderService.getObservable('checkin2').subscribe(p => this.lastName = p['Guest']['LastName']);
+        this.dataProviderService.getObservable('checkin2').subscribe(p => this.data = p);
     }
 }

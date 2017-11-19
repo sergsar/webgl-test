@@ -13,10 +13,10 @@ var data_provider_service_1 = require("./data.provider.service");
 var AppComponent = (function () {
     function AppComponent(dataProviderService) {
         this.dataProviderService = dataProviderService;
-    } // TODO: delete, only needed for dataprov tests
+    } // TODO: delete, only needed for data tests
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.dataProviderService.getObservable('checkin2').subscribe(function (p) { return _this.lastName = p['Guest']['LastName']; });
+        this.dataProviderService.getObservable('checkin2').subscribe(function (p) { return _this.data = p; });
     };
     return AppComponent;
 }());

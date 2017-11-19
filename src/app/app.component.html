@@ -1,14 +1,15 @@
 <div>
   <canvas></canvas>
-    <three-area>
+    <three-area *ngIf="data">
       <renderer>
         <scene>
-          <perspective-camera>
+            <perspective-camera>
               <camera-orbit-control></camera-orbit-control>
-          </perspective-camera>
-          <box-control id="{{lastName}}"></box-control>
-          <hemisphere-light></hemisphere-light>
-          <direct-light></direct-light>
+            </perspective-camera>
+            <box-control id="{{data['Guest']['LastName']}}"></box-control>
+            <cube-control></cube-control>
+            <hemisphere-light></hemisphere-light>
+            <direct-light></direct-light>
         </scene>
       </renderer>
     </three-area>
