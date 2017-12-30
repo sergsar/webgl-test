@@ -8,6 +8,6 @@ export class AppComponent implements OnInit {
     constructor (private dataProviderService: DataProviderService) {} // TODO: delete, only needed for data tests
 
     ngOnInit() {
-        this.dataProviderService.getObservable('checkin2').subscribe(p => this.data = p);
+        this.dataProviderService.getObservable('nurseDictionaries').subscribe(p => this.data = p);
     }
 }

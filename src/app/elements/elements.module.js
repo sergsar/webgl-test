@@ -6,13 +6,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var CubeControlComponent = (function () {
-    function CubeControlComponent() {
+var item3d_1 = require("./item3d");
+var ElementsModule = (function () {
+    function ElementsModule() {
     }
-    return CubeControlComponent;
+    return ElementsModule;
 }());
-CubeControlComponent = __decorate([
-    core_1.Component({ selector: 'cube-control', template: '<ng-content></ng-content>' })
-], CubeControlComponent);
-exports.CubeControlComponent = CubeControlComponent;
-//# sourceMappingURL=cube-control.component.js.map
+ElementsModule = __decorate([
+    core_1.NgModule({
+        declarations: [item3d_1.Item3d],
+        exports: [item3d_1.Item3d]
+    })
+], ElementsModule);
+exports.ElementsModule = ElementsModule;
+//# sourceMappingURL=elements.module.js.map
