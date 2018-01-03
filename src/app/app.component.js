@@ -16,7 +16,7 @@ var AppComponent = (function () {
     } // TODO: delete, only needed for data tests
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.dataProviderService.getObservable('nurseDictionaries').subscribe(function (p) { return _this.data = p; });
+        this.dataProviderService.getObservable('checkin.json').subscribe(function (p) { return _this.data = p; });
     };
     return AppComponent;
 }());

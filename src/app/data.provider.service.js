@@ -15,7 +15,7 @@ var DataProviderService = (function () {
         this.httpClient = httpClient;
     }
     DataProviderService.prototype.getObservable = function (datasetName) {
-        return this.httpClient.get('http://idvp4.solit-clouds.ru/idvp-data/api/query/' + datasetName, { headers: new http_1.HttpHeaders().set('X-Tenant-Id', 'hospitals') });
+        return this.httpClient.get('https://presentation.idvp.net/checkin/file/' + datasetName, { headers: new http_1.HttpHeaders().set('X-Tenant-Id', 'logus') });
     };
     return DataProviderService;
 }());

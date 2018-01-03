@@ -1,5 +1,5 @@
 import {BoxGeometry, Mesh, MeshBasicMaterial, MeshPhongMaterial, MeshLambertMaterial} from 'three';
-import {Component, forwardRef} from '@angular/core';
+import {Component, forwardRef, Provider} from '@angular/core';
 import {Object3dComponent} from './object3d.component';
 
 @Component({
@@ -12,7 +12,6 @@ export class BoxControlComponent extends Object3dComponent {
     private meshPhongMaterial: MeshPhongMaterial;
     private meshBasicMaterial: MeshBasicMaterial;
     private meshLambertMaterial: MeshLambertMaterial;
-
 
     constructor() {
         super();

@@ -1,14 +1,14 @@
 <div>
   <canvas></canvas>
-    <!--<three-area *ngIf="data">-->
-    <three-area >
+    <three-area *ngIf="data">
+    <!--<three-area >-->
       <renderer>
         <scene>
             <perspective-camera>
               <camera-orbit-control></camera-orbit-control>
             </perspective-camera>
-            <!--<box-control id="{{data['Guest']['LastName']}}"></box-control>-->
-            <box-control ></box-control>
+            <box-control id="{{data['Guest']['LastName']}}"></box-control>
+            <!--<box-control ></box-control>-->
             <cube-control>
                 <item-3d></item-3d>
             </cube-control>

@@ -10,8 +10,8 @@ export class DataProviderService {
 
     public getObservable(datasetName: string): Observable<Object> {
         return         this.httpClient.get(
-            'http://idvp4.solit-clouds.ru/idvp-data/api/query/' + datasetName,
-            {headers: new HttpHeaders().set('X-Tenant-Id', 'hospitals')}
+            'https://presentation.idvp.net/checkin/file/' + datasetName,
+            {headers: new HttpHeaders().set('X-Tenant-Id', 'logus')}
         );
     }
 
