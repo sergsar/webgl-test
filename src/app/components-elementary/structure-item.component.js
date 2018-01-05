@@ -6,13 +6,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var DataItemComponent = (function () {
-    function DataItemComponent() {
+var StructureItemComponent = (function () {
+    function StructureItemComponent() {
     }
-    return DataItemComponent;
+    return StructureItemComponent;
 }());
-DataItemComponent = __decorate([
-    core_1.Component({ selector: 'item-item', template: '' })
-], DataItemComponent);
-exports.DataItemComponent = DataItemComponent;
-//# sourceMappingURL=data-item.component.js.map
+StructureItemComponent = __decorate([
+    core_1.Component({ selector: 'structure-item', template: '' })
+], StructureItemComponent);
+exports.StructureItemComponent = StructureItemComponent;
+//# sourceMappingURL=structure-item.component.js.map
