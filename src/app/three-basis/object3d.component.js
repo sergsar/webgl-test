@@ -9,26 +9,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var object3d_1 = require("./object3d");
-var Object3dContainerComponent = (function () {
-    function Object3dContainerComponent() {
+var Object3dComponent = Object3dComponent_1 = (function () {
+    function Object3dComponent() {
         this.objects3D = new core_1.QueryList();
     }
-    Object3dContainerComponent.prototype.ngAfterContentInit = function () {
+    Object3dComponent.prototype.ngAfterContentInit = function () {
         var _this = this;
-        this.objects3D.forEach(function (p) { return _this.object3d.add(p.getObject3D()); });
+        this.objects3D.forEach(function (p) {
+            var object = p.getObject3D();
+            if (object !== _this.object3d) {
+                _this.object3d.add(object);
+            }
+        });
     };
-    Object3dContainerComponent.prototype.getObject3D = function () {
+    Object3dComponent.prototype.getObject3D = function () {
         return this.object3d;
     };
-    return Object3dContainerComponent;
+    return Object3dComponent;
 }());
 __decorate([
-    core_1.ContentChildren(object3d_1.Object3D),
+    core_1.ContentChildren(Object3dComponent_1),
     __metadata("design:type", core_1.QueryList)
-], Object3dContainerComponent.prototype, "objects3D", void 0);
-Object3dContainerComponent = __decorate([
+], Object3dComponent.prototype, "objects3D", void 0);
+Object3dComponent = Object3dComponent_1 = __decorate([
     core_1.Component({ template: '' })
-], Object3dContainerComponent);
-exports.Object3dContainerComponent = Object3dContainerComponent;
-//# sourceMappingURL=object3d-container.component.js.map
+], Object3dComponent);
+exports.Object3dComponent = Object3dComponent;
+var Object3dComponent_1;
+//# sourceMappingURL=object3d.component.js.map

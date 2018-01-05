@@ -2,14 +2,14 @@ import {Component, ContentChild, forwardRef} from '@angular/core';
 import {Scene} from 'three';
 import {PerspectiveCameraComponent} from './perspective-camera.component';
 import {SceneProvider} from './scene-provider.service';
-import {Object3dContainerComponent} from './object3d-container.component';
+import {Object3dComponent} from './object3d.component';
 
 @Component({
     selector: 'scene',
     templateUrl: './scene.component.html',
-    providers: [{ provide: Object3dContainerComponent, useExisting: forwardRef(() => SceneComponent) }]
+    providers: [{ provide: Object3dComponent, useExisting: forwardRef(() => SceneComponent) }]
 })
-export class SceneComponent extends Object3dContainerComponent {
+export class SceneComponent extends Object3dComponent {
     @ContentChild(PerspectiveCameraComponent)
     perspectiveCameraComponent: PerspectiveCameraComponent;
 

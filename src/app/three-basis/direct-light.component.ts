@@ -1,12 +1,12 @@
 import {Component, forwardRef} from '@angular/core';
 import {DirectionalLight} from 'three';
-import {Object3D} from './object3d';
+import {Object3dComponent} from './object3d.component';
 
 @Component({
     selector: 'direct-light',
     template: '',
-    providers: [{ provide: Object3D, useExisting: forwardRef(() => DirectLightComponent) }]})
-export class DirectLightComponent extends Object3D {
+    providers: [{ provide: Object3dComponent, useExisting: forwardRef(() => DirectLightComponent) }]})
+export class DirectLightComponent extends Object3dComponent {
     private directionalLight: DirectionalLight;
 
     constructor() {
@@ -15,6 +15,6 @@ export class DirectLightComponent extends Object3D {
         this.directionalLight = new DirectionalLight(0x606060);
         this.directionalLight.position.set(1, 1, 1);
 
-        this.object3D = this.directionalLight;
+        this.object3d = this.directionalLight;
     }
 }

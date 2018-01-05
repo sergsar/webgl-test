@@ -16,7 +16,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var perspective_camera_component_1 = require("./perspective-camera.component");
 var scene_provider_service_1 = require("./scene-provider.service");
-var object3d_container_component_1 = require("./object3d-container.component");
+var object3d_component_1 = require("./object3d.component");
 var SceneComponent = SceneComponent_1 = (function (_super) {
     __extends(SceneComponent, _super);
     function SceneComponent(sceneProvider) {
@@ -33,7 +33,7 @@ var SceneComponent = SceneComponent_1 = (function (_super) {
         configurable: true
     });
     return SceneComponent;
-}(object3d_container_component_1.Object3dContainerComponent));
+}(object3d_component_1.Object3dComponent));
 __decorate([
     core_1.ContentChild(perspective_camera_component_1.PerspectiveCameraComponent),
     __metadata("design:type", perspective_camera_component_1.PerspectiveCameraComponent)
@@ -42,7 +42,7 @@ SceneComponent = SceneComponent_1 = __decorate([
     core_1.Component({
         selector: 'scene',
         templateUrl: './scene.component.html',
-        providers: [{ provide: object3d_container_component_1.Object3dContainerComponent, useExisting: core_1.forwardRef(function () { return SceneComponent_1; }) }]
+        providers: [{ provide: object3d_component_1.Object3dComponent, useExisting: core_1.forwardRef(function () { return SceneComponent_1; }) }]
     }),
     __metadata("design:paramtypes", [scene_provider_service_1.SceneProvider])
 ], SceneComponent);

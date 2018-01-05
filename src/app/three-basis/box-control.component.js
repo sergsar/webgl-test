@@ -15,7 +15,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var three_1 = require("three");
 var core_1 = require("@angular/core");
-var object3d_1 = require("./object3d");
+var object3d_component_1 = require("./object3d.component");
 var BoxControlComponent = BoxControlComponent_1 = (function (_super) {
     __extends(BoxControlComponent, _super);
     function BoxControlComponent() {
@@ -24,16 +24,16 @@ var BoxControlComponent = BoxControlComponent_1 = (function (_super) {
         _this.meshBasicMaterial = new three_1.MeshBasicMaterial({ color: 0x00ff00 });
         _this.meshPhongMaterial = new three_1.MeshPhongMaterial({ color: 0x00ff00, specular: 0x050505 });
         _this.meshLambertMaterial = new three_1.MeshLambertMaterial({ color: 0x00ff00 });
-        _this.object3D = new three_1.Mesh(_this.boxGeometry, _this.meshLambertMaterial);
+        _this.object3d = new three_1.Mesh(_this.boxGeometry, _this.meshLambertMaterial);
         return _this;
     }
     return BoxControlComponent;
-}(object3d_1.Object3D));
+}(object3d_component_1.Object3dComponent));
 BoxControlComponent = BoxControlComponent_1 = __decorate([
     core_1.Component({
         selector: 'box-control',
         template: '',
-        providers: [{ provide: object3d_1.Object3D, useExisting: core_1.forwardRef(function () { return BoxControlComponent_1; }) }]
+        providers: [{ provide: object3d_component_1.Object3dComponent, useExisting: core_1.forwardRef(function () { return BoxControlComponent_1; }) }]
     }),
     __metadata("design:paramtypes", [])
 ], BoxControlComponent);
