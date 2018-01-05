@@ -7,8 +7,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var group3d_component_1 = require("./group3d.component");
-var structure_object_component_1 = require("./structure-object.component");
-var structure_item_component_1 = require("./structure-item.component");
+var bind_object_component_1 = require("./bind-object.component");
+var bind_item_component_1 = require("./bind-item.component");
 var ComponentsElementaryModule = (function () {
     function ComponentsElementaryModule() {
     }
@@ -16,8 +16,8 @@ var ComponentsElementaryModule = (function () {
 }());
 ComponentsElementaryModule = __decorate([
     core_1.NgModule({
-        declarations: [group3d_component_1.Group3dComponent, structure_object_component_1.StructureObjectComponent, structure_item_component_1.StructureItemComponent],
-        exports: [group3d_component_1.Group3dComponent, structure_object_component_1.StructureObjectComponent, structure_item_component_1.StructureItemComponent]
+        declarations: [group3d_component_1.Group3dComponent, bind_object_component_1.BindObjectComponent, bind_item_component_1.BindItemComponent],
+        exports: [group3d_component_1.Group3dComponent, bind_object_component_1.BindObjectComponent, bind_item_component_1.BindItemComponent]
     })
 ], ComponentsElementaryModule);
 exports.ComponentsElementaryModule = ComponentsElementaryModule;
