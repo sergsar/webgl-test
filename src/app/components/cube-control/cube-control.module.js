@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var three_basis_module_1 = require("../../three-basis/three-basis.module");
 var cube_control_component_1 = require("./cube-control.component");
-var elements_module_1 = require("../../elements/elements.module");
+var components_elementary_module_1 = require("../../components-elementary/components-elementary.module");
 var CubeControlModule = (function () {
     function CubeControlModule() {
     }
@@ -16,7 +16,7 @@ var CubeControlModule = (function () {
 }());
 CubeControlModule = __decorate([
     core_1.NgModule({
-        imports: [three_basis_module_1.ThreeBasisModule, elements_module_1.ElementsModule],
+        imports: [three_basis_module_1.ThreeBasisModule, components_elementary_module_1.ComponentsElementaryModule],
         declarations: [cube_control_component_1.CubeControlComponent],
         exports: [cube_control_component_1.CubeControlComponent]
     })

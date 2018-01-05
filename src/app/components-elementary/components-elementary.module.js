@@ -6,13 +6,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var Group3d = (function () {
-    function Group3d() {
+var group3d_component_1 = require("./group3d.component");
+var ComponentsElementaryModule = (function () {
+    function ComponentsElementaryModule() {
     }
-    return Group3d;
+    return ComponentsElementaryModule;
 }());
-Group3d = __decorate([
-    core_1.Component({ selector: 'group-3d', template: '<ng-content></ng-content>' })
-], Group3d);
-exports.Group3d = Group3d;
-//# sourceMappingURL=group3d.js.map
+ComponentsElementaryModule = __decorate([
+    core_1.NgModule({
+        declarations: [group3d_component_1.Group3dComponent],
+        exports: [group3d_component_1.Group3dComponent]
+    })
+], ComponentsElementaryModule);
+exports.ComponentsElementaryModule = ComponentsElementaryModule;
+//# sourceMappingURL=components-elementary.module.js.map

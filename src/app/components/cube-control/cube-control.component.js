@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var group3d_1 = require("../../elements/group3d");
+var group3d_component_1 = require("../../components-elementary/group3d.component");
 var CubeControlComponent = (function () {
     function CubeControlComponent() {
         this.items3d = new core_1.QueryList();
@@ -19,7 +19,7 @@ var CubeControlComponent = (function () {
     return CubeControlComponent;
 }());
 __decorate([
-    core_1.ContentChildren(group3d_1.Group3d),
+    core_1.ContentChildren(group3d_component_1.Group3dComponent),
     __metadata("design:type", core_1.QueryList)
 ], CubeControlComponent.prototype, "items3d", void 0);
 CubeControlComponent = __decorate([

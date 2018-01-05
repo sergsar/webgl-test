@@ -12,7 +12,7 @@ var three_basis_module_1 = require("./three-basis/three-basis.module");
 var data_provider_service_1 = require("./data.provider.service");
 var http_1 = require("@angular/common/http");
 var components_module_1 = require("./components/components.module");
-var elements_module_1 = require("./elements/elements.module");
+var components_elementary_module_1 = require("./components-elementary/components-elementary.module");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -20,7 +20,7 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, three_basis_module_1.ThreeBasisModule, http_1.HttpClientModule, components_module_1.ComponentsModule, elements_module_1.ElementsModule],
+        imports: [platform_browser_1.BrowserModule, three_basis_module_1.ThreeBasisModule, http_1.HttpClientModule, components_module_1.ComponentsModule, components_elementary_module_1.ComponentsElementaryModule],
         declarations: [app_component_1.AppComponent],
         bootstrap: [app_component_1.AppComponent],
         providers: [data_provider_service_1.DataProviderService] // TODO: delete, only needed for dataprov tests

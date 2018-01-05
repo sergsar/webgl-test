@@ -7,7 +7,7 @@ export abstract class Object3dComponent implements AfterContentInit {
     protected object3d: ThreeObject;
 
     @ContentChildren(Object3dComponent)
-    objects3D: QueryList<Object3dComponent> = new QueryList<Object3dComponent>();
+    private objects3D: QueryList<Object3dComponent> = new QueryList<Object3dComponent>();
 
     ngAfterContentInit() {
         this.objects3D.forEach(p => {
