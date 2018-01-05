@@ -1,4 +1,9 @@
 "use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -11,30 +16,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var perspective_camera_component_1 = require("./perspective-camera.component");
 var scene_provider_service_1 = require("./scene-provider.service");
-var object3d_component_1 = require("./object3d.component");
-var SceneComponent = (function () {
+var object3d_container_component_1 = require("./object3d-container.component");
+var SceneComponent = SceneComponent_1 = (function (_super) {
+    __extends(SceneComponent, _super);
     function SceneComponent(sceneProvider) {
-        this.sceneProvider = sceneProvider;
-        this.object3dComponents = new core_1.QueryList();
-        this.scene = this.sceneProvider.getScene();
+        var _this = _super.call(this) || this;
+        _this.sceneProvider = sceneProvider;
+        _this.object3d = _this.sceneProvider.getScene();
+        return _this;
     }
-    SceneComponent.prototype.ngAfterContentInit = function () {
-        var _this = this;
-        this.object3dComponents.forEach(function (p) { return _this.scene.add(p.getObject3D()); });
-    };
+    Object.defineProperty(SceneComponent.prototype, "scene", {
+        get: function () {
+            return this.object3d;
+        },
+        enumerable: true,
+        configurable: true
+    });
     return SceneComponent;
-}());
+}(object3d_container_component_1.Object3dContainerComponent));
 __decorate([
     core_1.ContentChild(perspective_camera_component_1.PerspectiveCameraComponent),
     __metadata("design:type", perspective_camera_component_1.PerspectiveCameraComponent)
 ], SceneComponent.prototype, "perspectiveCameraComponent", void 0);
-__decorate([
-    core_1.ContentChildren(object3d_component_1.Object3dComponent),
-    __metadata("design:type", core_1.QueryList)
-], SceneComponent.prototype, "object3dComponents", void 0);
-SceneComponent = __decorate([
-    core_1.Component({ selector: 'scene', templateUrl: './scene.component.html' }),
+SceneComponent = SceneComponent_1 = __decorate([
+    core_1.Component({
+        selector: 'scene',
+        templateUrl: './scene.component.html',
+        providers: [{ provide: object3d_container_component_1.Object3dContainerComponent, useExisting: core_1.forwardRef(function () { return SceneComponent_1; }) }]
+    }),
     __metadata("design:paramtypes", [scene_provider_service_1.SceneProvider])
 ], SceneComponent);
 exports.SceneComponent = SceneComponent;
+var SceneComponent_1;
 //# sourceMappingURL=scene.component.js.map

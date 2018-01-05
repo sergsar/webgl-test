@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
-import {Item3d} from './item3d';
+import {Group3d} from './group3d';
 
 @NgModule({
-    declarations: [Item3d],
-    exports: [Item3d]
+    declarations: [Group3d],
+    exports: [Group3d]
 })
 export class ElementsModule { }

@@ -9,21 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var group3d_1 = require("../../elements/group3d");
-var CubeControlComponent = (function () {
-    function CubeControlComponent() {
-        this.items3d = new core_1.QueryList();
+var object3d_1 = require("./object3d");
+var Object3dContainerComponent = (function () {
+    function Object3dContainerComponent() {
+        this.objects3D = new core_1.QueryList();
     }
-    CubeControlComponent.prototype.ngAfterContentInit = function () {
+    Object3dContainerComponent.prototype.ngAfterContentInit = function () {
+        var _this = this;
+        this.objects3D.forEach(function (p) { return _this.object3d.add(p.getObject3D()); });
     };
-    return CubeControlComponent;
+    Object3dContainerComponent.prototype.getObject3D = function () {
+        return this.object3d;
+    };
+    return Object3dContainerComponent;
 }());
 __decorate([
-    core_1.ContentChildren(group3d_1.Group3d),
+    core_1.ContentChildren(object3d_1.Object3D),
     __metadata("design:type", core_1.QueryList)
-], CubeControlComponent.prototype, "items3d", void 0);
-CubeControlComponent = __decorate([
-    core_1.Component({ selector: 'cube-control', template: '<ng-content></ng-content>' })
-], CubeControlComponent);
-exports.CubeControlComponent = CubeControlComponent;
-//# sourceMappingURL=cube-control.component.js.map
+], Object3dContainerComponent.prototype, "objects3D", void 0);
+Object3dContainerComponent = __decorate([
+    core_1.Component({ template: '' })
+], Object3dContainerComponent);
+exports.Object3dContainerComponent = Object3dContainerComponent;
+//# sourceMappingURL=object3d-container.component.js.map

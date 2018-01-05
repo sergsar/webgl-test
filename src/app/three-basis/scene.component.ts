@@ -1,27 +1,26 @@
-import {AfterContentInit, Component, ContentChild, ContentChildren, QueryList} from '@angular/core';
+import {Component, ContentChild, forwardRef} from '@angular/core';
 import {Scene} from 'three';
 import {PerspectiveCameraComponent} from './perspective-camera.component';
 import {SceneProvider} from './scene-provider.service';
-import {Object3dComponent} from './object3d.component';
+import {Object3dContainerComponent} from './object3d-container.component';
 
-@Component({ selector: 'scene', templateUrl: './scene.component.html' })
-export class SceneComponent implements AfterContentInit {
-
-    public scene: Scene;
-
+@Component({
+    selector: 'scene',
+    templateUrl: './scene.component.html',
+    providers: [{ provide: Object3dContainerComponent, useExisting: forwardRef(() => SceneComponent) }]
+})
+export class SceneComponent extends Object3dContainerComponent {
     @ContentChild(PerspectiveCameraComponent)
     perspectiveCameraComponent: PerspectiveCameraComponent;
 
-    @ContentChildren(Object3dComponent)
-    object3dComponents: QueryList<Object3dComponent> = new QueryList<Object3dComponent>();
+
 
     constructor(private sceneProvider: SceneProvider) {
-        this.scene = this.sceneProvider.getScene();
-
+        super();
+        this.object3d = this.sceneProvider.getScene();
     }
 
-    ngAfterContentInit() {
-        this.object3dComponents.forEach(p => this.scene.add(p.getObject3D()));
-
+    public get scene(): Scene {
+        return this.object3d as Scene;
     }
 }

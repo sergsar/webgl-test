@@ -1,12 +1,12 @@
 import {Component, forwardRef} from '@angular/core';
 import {HemisphereLight} from 'three';
-import {Object3dComponent} from './object3d.component';
+import {Object3D} from './object3d';
 
 @Component({
   selector: 'hemisphere-light',
   template: '',
-  providers: [{ provide: Object3dComponent, useExisting: forwardRef(() => HemisphereLightComponent) }]})
-export class HemisphereLightComponent extends Object3dComponent {
+  providers: [{ provide: Object3D, useExisting: forwardRef(() => HemisphereLightComponent) }]})
+export class HemisphereLightComponent extends Object3D {
   private hemisphereLight: HemisphereLight;
 
   constructor() {

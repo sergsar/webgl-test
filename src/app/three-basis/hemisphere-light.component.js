@@ -15,7 +15,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var three_1 = require("three");
-var object3d_component_1 = require("./object3d.component");
+var object3d_1 = require("./object3d");
 var HemisphereLightComponent = HemisphereLightComponent_1 = (function (_super) {
     __extends(HemisphereLightComponent, _super);
     function HemisphereLightComponent() {
@@ -25,12 +25,12 @@ var HemisphereLightComponent = HemisphereLightComponent_1 = (function (_super) {
         return _this;
     }
     return HemisphereLightComponent;
-}(object3d_component_1.Object3dComponent));
+}(object3d_1.Object3D));
 HemisphereLightComponent = HemisphereLightComponent_1 = __decorate([
     core_1.Component({
         selector: 'hemisphere-light',
         template: '',
-        providers: [{ provide: object3d_component_1.Object3dComponent, useExisting: core_1.forwardRef(function () { return HemisphereLightComponent_1; }) }]
+        providers: [{ provide: object3d_1.Object3D, useExisting: core_1.forwardRef(function () { return HemisphereLightComponent_1; }) }]
     }),
     __metadata("design:paramtypes", [])
 ], HemisphereLightComponent);

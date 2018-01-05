@@ -15,7 +15,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var three_1 = require("three");
-var object3d_component_1 = require("./object3d.component");
+var object3d_1 = require("./object3d");
 var DirectLightComponent = DirectLightComponent_1 = (function (_super) {
     __extends(DirectLightComponent, _super);
     function DirectLightComponent() {
@@ -26,12 +26,12 @@ var DirectLightComponent = DirectLightComponent_1 = (function (_super) {
         return _this;
     }
     return DirectLightComponent;
-}(object3d_component_1.Object3dComponent));
+}(object3d_1.Object3D));
 DirectLightComponent = DirectLightComponent_1 = __decorate([
     core_1.Component({
         selector: 'direct-light',
         template: '',
-        providers: [{ provide: object3d_component_1.Object3dComponent, useExisting: core_1.forwardRef(function () { return DirectLightComponent_1; }) }]
+        providers: [{ provide: object3d_1.Object3D, useExisting: core_1.forwardRef(function () { return DirectLightComponent_1; }) }]
     }),
     __metadata("design:paramtypes", [])
 ], DirectLightComponent);
