@@ -10,21 +10,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var bind_item_component_1 = require("./bind-item.component");
-var BindObjectComponent = (function () {
+var BindObjectComponent = BindObjectComponent_1 = (function () {
     function BindObjectComponent() {
         this.items = new core_1.QueryList();
+        this.objects = new core_1.QueryList();
     }
+    BindObjectComponent.prototype.ngOnInit = function () {
+        console.log(this.name);
+    };
     BindObjectComponent.prototype.getItems = function () {
         return this.items;
+    };
+    BindObjectComponent.prototype.getObjects = function () {
+        return this.objects;
     };
     return BindObjectComponent;
 }());
 __decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], BindObjectComponent.prototype, "name", void 0);
+__decorate([
     core_1.ContentChildren(bind_item_component_1.BindItemComponent),
     __metadata("design:type", core_1.QueryList)
 ], BindObjectComponent.prototype, "items", void 0);
-BindObjectComponent = __decorate([
+__decorate([
+    core_1.ContentChildren(BindObjectComponent_1),
+    __metadata("design:type", core_1.QueryList)
+], BindObjectComponent.prototype, "objects", void 0);
+BindObjectComponent = BindObjectComponent_1 = __decorate([
     core_1.Component({ selector: 'bind-object', template: '<ng-content></ng-content>' })
 ], BindObjectComponent);
 exports.BindObjectComponent = BindObjectComponent;
+var BindObjectComponent_1;
 //# sourceMappingURL=bind-object.component.js.map
