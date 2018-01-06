@@ -14,40 +14,44 @@
 
             <!--<box-control ></box-control>-->
             <cube-control>
-                <bind-item key="TitleReceptionOnSelfRecording" value="ПРИЕМ ПО САМОЗАПИСИ"></bind-item>
-                <bind-item key="TitleReceptionOfPatients" value="ПРИЕМ ПАЦИЕНТОВ"></bind-item>
-                <bind-item key="TitleWorkTime" value="РАБОЧЕЕ ВРЕМЯ"></bind-item>
-                <bind-item key="TitleWeightedNormative" value="ВЗВЕШЕННЫЙ НОРМАТИВ"></bind-item>
-                <bind-item key="TitleHours" value="часы"></bind-item>
-                <bind-item key="TitleWorkingTime" value="рабочее время"></bind-item>
-                <bind-item key="TitleEquivalentInBets" value="эквивалент в ставках"></bind-item>
-                <bind-item key="TitleWorkingTimeBlue" value="ВЫДЕЛЕНО"></bind-item>
-                <bind-item key="TitleWorkingTimeRed" value="ДЕФИЦИТ"></bind-item>
+                <bind-item key="Title" value="рабочее время"></bind-item>
                 <bind-object name="CubeParts">
                     <bind-object name="CubePart">
+                        <bind-item key="Title" value="ПРИЕМ ПО САМОЗАПИСИ"></bind-item>
                         <bind-item key="Name" value="Прием по самозаписи"></bind-item>
                         <bind-item key="Value" value="3364"></bind-item>
                         <bind-item key="Color" value="Green"></bind-item>
                     </bind-object>
                     <bind-object name="CubePart">
+                        <bind-item key="Title" value="ПРИЕМ ПАЦИЕНТОВ"></bind-item>
                         <bind-item key="Name" value="Прием пациентов"></bind-item>
                         <bind-item key="Value" value="4674"></bind-item>
                         <bind-item key="Color" value="Orange"></bind-item>
                     </bind-object>
                     <bind-object name="CubePart">
+                        <bind-item key="Title" value="РАБОЧЕЕ ВРЕМЯ"></bind-item>
                         <bind-item key="Name" value="Рабочее время"></bind-item>
                         <bind-item key="Value" value="6460"></bind-item>
                         <bind-item key="Color" value="Blue"></bind-item>
                     </bind-object>
+                    <bind-object name="CubePart">
+                        <bind-item key="Title" value="ВЗВЕШЕННЫЙ НОРМАТИВ"></bind-item>
+                        <bind-item key="Name" value="Взвешенный норматив"></bind-item>
+                        <bind-item key="Value" value="7979"></bind-item>
+                        <bind-item key="Color" value="Brown"></bind-item>
+                    </bind-object>
                 </bind-object>
                 <bind-object name="CubeRates">
+                    <bind-item key="Title" value="эквивалент в ставках"></bind-item>
                     <bind-object name="CubeRate">
+                        <bind-item key="Title" value="ВЫДЕЛЕНО"></bind-item>
                         <bind-item key="Color" value="Blue"></bind-item>
                         <bind-item key="Percent" value="81"></bind-item>
                         <bind-item key="PercentText" value="81%"></bind-item>
                         <bind-item key="Value" value="46"></bind-item>
                     </bind-object>
                     <bind-object name="CubeRate">
+                        <bind-item key="Title" value="ДЕФИЦИТ"></bind-item>
                         <bind-item key="Color" value="Red"></bind-item>
                         <bind-item key="Percent" value="19"></bind-item>
                         <bind-item key="PercentText" value="19%"></bind-item>
