@@ -2,7 +2,7 @@ import {OnInit, Component, ContentChildren, Input, QueryList} from '@angular/cor
 import {BindItemComponent} from './bind-item.component';
 
 @Component({ selector: 'bind-object', template: '<ng-content></ng-content>' })
-export class BindObjectComponent implements OnInit {
+export class BindObjectComponent {
 
     @Input()
     name: string;
@@ -13,9 +13,9 @@ export class BindObjectComponent implements OnInit {
     @ContentChildren(BindObjectComponent)
     private objects: QueryList<BindObjectComponent> = new QueryList<BindObjectComponent>();
 
-    ngOnInit() {
-        console.log(this.name);
-    }
+    // ngOnInit() {
+    //     console.log(this.name);
+    // }
 
     public getItems(): QueryList<BindItemComponent> {
         return this.items;

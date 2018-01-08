@@ -15,9 +15,9 @@ var BindObjectComponent = BindObjectComponent_1 = (function () {
         this.items = new core_1.QueryList();
         this.objects = new core_1.QueryList();
     }
-    BindObjectComponent.prototype.ngOnInit = function () {
-        console.log(this.name);
-    };
+    // ngOnInit() {
+    //     console.log(this.name);
+    // }
     BindObjectComponent.prototype.getItems = function () {
         return this.items;
     };
