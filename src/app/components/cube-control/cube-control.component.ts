@@ -27,12 +27,12 @@ export class CubeControlComponent extends Object3dComponent implements AfterCont
             let color = new Color(cubePart.getItems().filter(p => p.key === 'Color')[0].value);
             let element: Object3D;
             if (i === 0) {
-                let value = Number(cubePart.getItems().filter(p => p.key === 'Value')[0].value) / maxValue;
+                let value = Math.sqrt(Number(cubePart.getItems().filter(p => p.key === 'Value')[0].value) / maxValue);
                 element = new CubeFirstElement(value, height, color).getElement();
             } else {
                 let previousCubePart = cubeParts[i - 1];
-                let value = Number(previousCubePart.getItems().filter(p => p.key === 'Value')[0].value) / maxValue;
-                let value2 = Number(cubePart.getItems().filter(p => p.key === 'Value')[0].value) / maxValue;
+                let value = Math.sqrt(Number(previousCubePart.getItems().filter(p => p.key === 'Value')[0].value) / maxValue);
+                let value2 = Math.sqrt(Number(cubePart.getItems().filter(p => p.key === 'Value')[0].value) / maxValue);
                 element = new CubeSerialElement(value, value2, height, color).getElement();
             }
             group.add(element);

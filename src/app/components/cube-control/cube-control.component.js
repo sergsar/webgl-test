@@ -37,13 +37,13 @@ var CubeControlComponent = CubeControlComponent_1 = (function (_super) {
             var color = new three_1.Color(cubePart.getItems().filter(function (p) { return p.key === 'Color'; })[0].value);
             var element = void 0;
             if (i === 0) {
-                var value = Number(cubePart.getItems().filter(function (p) { return p.key === 'Value'; })[0].value) / maxValue;
+                var value = Math.sqrt(Number(cubePart.getItems().filter(function (p) { return p.key === 'Value'; })[0].value) / maxValue);
                 element = new cube_first_element_1.CubeFirstElement(value, height, color).getElement();
             }
             else {
                 var previousCubePart = cubeParts[i - 1];
-                var value = Number(previousCubePart.getItems().filter(function (p) { return p.key === 'Value'; })[0].value) / maxValue;
-                var value2 = Number(cubePart.getItems().filter(function (p) { return p.key === 'Value'; })[0].value) / maxValue;
+                var value = Math.sqrt(Number(previousCubePart.getItems().filter(function (p) { return p.key === 'Value'; })[0].value) / maxValue);
+                var value2 = Math.sqrt(Number(cubePart.getItems().filter(function (p) { return p.key === 'Value'; })[0].value) / maxValue);
                 element = new cube_serial_element_1.CubeSerialElement(value, value2, height, color).getElement();
             }
             group.add(element);
