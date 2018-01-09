@@ -1,1 +1,1 @@
-{"version":3,"file":"cube-element.js","sourceRoot":"","sources":["cube-element.ts"],"names":[],"mappings":";AAAA,+BAA2D;AAE3D;IAII,qBAAY,KAAY;QACpB,IAAI,CAAC,QAAQ,GAAG,IAAI,2BAAmB,CAAC,EAAC,KAAK,EAAE,KAAK,EAAC,CAAC,CAAC;IAC5D,CAAC;IAEM,gCAAU,GAAjB;QACI,MAAM,CAAC,IAAI,CAAC,OAAO,CAAC;IACxB,CAAC;IACL,kBAAC;AAAD,CAAC,AAXD,IAWC;AAXqB,kCAAW"}
+{"version":3,"file":"cube-element.js","sourceRoot":"","sources":["cube-element.ts"],"names":[],"mappings":";AAEA;IAAA;IAOA,CAAC;IAHU,gCAAU,GAAjB;QACI,MAAM,CAAC,IAAI,CAAC,OAAO,CAAC;IACxB,CAAC;IACL,kBAAC;AAAD,CAAC,AAPD,IAOC;AAPqB,kCAAW"}

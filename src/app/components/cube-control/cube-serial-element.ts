@@ -1,16 +1,18 @@
-import {BufferGeometry, Color, Vector3, Float32BufferAttribute, Mesh} from 'three';
+import {BufferGeometry, Vector3, Float32BufferAttribute, Mesh, Material} from 'three';
 import {CubeElement} from './cube-element';
 
 export class CubeSerialElement extends CubeElement {
-    constructor(value1: number, value2: number, height: number, color: Color) {
+    constructor(value1: number, value2: number, height: number, material: Material) {
 
-        super(color);
+        super();
+
+        this.material = material;
 
         let positions = [];
         let geometry = new BufferGeometry();
 
         let v1 = value1, v2 = value2, h = height;
-        let half = new Vector3(0.5, 0, 0.5);
+        let half = new Vector3(1, 0, 1).multiplyScalar(0.5);
 
         // points:
         let p11 = new Vector3(v2, 0, 0).sub(half), p12 = new Vector3(v2, h, 0).sub(half), p13 = new Vector3(v1, h, 0).sub(half), p14 = new Vector3(v1, 0, 0).sub(half);
@@ -59,7 +61,7 @@ export class CubeSerialElement extends CubeElement {
         geometry.addAttribute('position', new Float32BufferAttribute(positions, 3).onUpload(disposeArray));
         geometry.addAttribute('normal', new Float32BufferAttribute(normals, 3).onUpload(disposeArray));
 
-        geometry.computeBoundingSphere();
+        geometry.computeBoundingBox();
 
         this.element = new Mesh( geometry, this.material );
     }

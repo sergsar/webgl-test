@@ -8,8 +8,9 @@ var three_1 = require("three");
 var cube_element_1 = require("./cube-element");
 var CubeFirstElement = (function (_super) {
     __extends(CubeFirstElement, _super);
-    function CubeFirstElement(value, height, color) {
-        var _this = _super.call(this, color) || this;
+    function CubeFirstElement(value, height, material) {
+        var _this = _super.call(this) || this;
+        _this.material = material;
         var boxGeometry = new three_1.BoxGeometry(value, height, value);
         var element = new three_1.Mesh(boxGeometry, _this.material);
         element.translateOnAxis(new three_1.Vector3(value - 1, height, value - 1).multiplyScalar(0.5), 1);

@@ -27,27 +27,42 @@ var CubeControlComponent = CubeControlComponent_1 = (function (_super) {
         return _this;
     }
     CubeControlComponent.prototype.ngAfterContentInit = function () {
-        var height = 0.15;
+        function getBodyMaterial(color) { return new three_1.MeshLambertMaterial({ color: color }); }
+        var partsHeight = 0.1;
         var cubePartsRoot = this.objects.filter(function (p) { return p.name === 'CubeParts'; })[0];
         var cubeParts = cubePartsRoot.getObjects().filter(function (p) { return p.name === 'CubePart'; }).sort(function (p) { return -Number(p.getItems().filter(function (p1) { return p1.key === 'Value'; })[0].value); });
         var group = new three_1.Group();
-        var maxValue = Number(cubeParts[cubeParts.length - 1].getItems().filter(function (p) { return p.key === 'Value'; })[0].value);
+        var ratesMaxValue = Number(cubeParts[cubeParts.length - 1].getItems().filter(function (p) { return p.key === 'Value'; })[0].value);
         for (var i = 0; i < cubeParts.length; i++) {
             var cubePart = cubeParts[i];
             var color = new three_1.Color(cubePart.getItems().filter(function (p) { return p.key === 'Color'; })[0].value);
             var element = void 0;
             if (i === 0) {
-                var value = Math.sqrt(Number(cubePart.getItems().filter(function (p) { return p.key === 'Value'; })[0].value) / maxValue);
-                element = new cube_first_element_1.CubeFirstElement(value, height, color).getElement();
+                var value = Math.sqrt(Number(cubePart.getItems().filter(function (p) { return p.key === 'Value'; })[0].value) / ratesMaxValue);
+                element = new cube_first_element_1.CubeFirstElement(value, partsHeight, getBodyMaterial(color)).getElement();
             }
             else {
                 var previousCubePart = cubeParts[i - 1];
-                var value = Math.sqrt(Number(previousCubePart.getItems().filter(function (p) { return p.key === 'Value'; })[0].value) / maxValue);
-                var value2 = Math.sqrt(Number(cubePart.getItems().filter(function (p) { return p.key === 'Value'; })[0].value) / maxValue);
-                element = new cube_serial_element_1.CubeSerialElement(value, value2, height, color).getElement();
+                var value = Math.sqrt(Number(previousCubePart.getItems().filter(function (p) { return p.key === 'Value'; })[0].value) / ratesMaxValue);
+                var value2 = Math.sqrt(Number(cubePart.getItems().filter(function (p) { return p.key === 'Value'; })[0].value) / ratesMaxValue);
+                element = new cube_serial_element_1.CubeSerialElement(value, value2, partsHeight, getBodyMaterial(color)).getElement();
             }
             group.add(element);
         }
+        var ratesThickness = 0.08;
+        var cubeRatesRoot = this.objects.filter(function (p) { return p.name === 'CubeRates'; })[0];
+        var cubeRates = cubeRatesRoot.getObjects().filter(function (p) { return p.name === 'CubeRate'; });
+        var ratesSum = cubeRates.map(function (p) { return Number(p.getItems().filter(function (p1) { return p1.key === 'Value'; })[0].value); }).reduce(function (p, p1) { return p + p1; }, 0);
+        var widths = 0;
+        cubeRates.forEach(function (rate) {
+            var value = Number(rate.getItems().filter(function (p) { return p.key === 'Value'; })[0].value);
+            var width = value / ratesSum;
+            var color = rate.getItems().filter(function (p) { return p.key === 'Color'; })[0].value;
+            var element = new three_1.Mesh(new three_1.BoxGeometry(width, ratesThickness, ratesThickness), getBodyMaterial(color));
+            element.translateOnAxis(new three_1.Vector3((width - 1) * 0.5 + widths, partsHeight + ratesThickness * 0.5, (ratesThickness - 1) * 0.5), 1);
+            widths = widths + width;
+            group.add(element);
+        });
         this.object3d = group;
     };
     return CubeControlComponent;

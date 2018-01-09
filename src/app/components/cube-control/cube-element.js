@@ -1,8 +1,6 @@
 "use strict";
-var three_1 = require("three");
 var CubeElement = (function () {
-    function CubeElement(color) {
-        this.material = new three_1.MeshLambertMaterial({ color: color });
+    function CubeElement() {
     }
     CubeElement.prototype.getElement = function () {
         return this.element;

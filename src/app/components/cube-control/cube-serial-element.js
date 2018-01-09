@@ -8,12 +8,13 @@ var three_1 = require("three");
 var cube_element_1 = require("./cube-element");
 var CubeSerialElement = (function (_super) {
     __extends(CubeSerialElement, _super);
-    function CubeSerialElement(value1, value2, height, color) {
-        var _this = _super.call(this, color) || this;
+    function CubeSerialElement(value1, value2, height, material) {
+        var _this = _super.call(this) || this;
+        _this.material = material;
         var positions = [];
         var geometry = new three_1.BufferGeometry();
         var v1 = value1, v2 = value2, h = height;
-        var half = new three_1.Vector3(0.5, 0, 0.5);
+        var half = new three_1.Vector3(1, 0, 1).multiplyScalar(0.5);
         // points:
         var p11 = new three_1.Vector3(v2, 0, 0).sub(half), p12 = new three_1.Vector3(v2, h, 0).sub(half), p13 = new three_1.Vector3(v1, h, 0).sub(half), p14 = new three_1.Vector3(v1, 0, 0).sub(half);
         var p21 = new three_1.Vector3(v2, 0, v2).sub(half), p22 = new three_1.Vector3(v2, h, v2).sub(half), p23 = new three_1.Vector3(v1, h, v1).sub(half);
@@ -56,7 +57,7 @@ var CubeSerialElement = (function (_super) {
         function disposeArray() { this.array = null; }
         geometry.addAttribute('position', new three_1.Float32BufferAttribute(positions, 3).onUpload(disposeArray));
         geometry.addAttribute('normal', new three_1.Float32BufferAttribute(normals, 3).onUpload(disposeArray));
-        geometry.computeBoundingSphere();
+        geometry.computeBoundingBox();
         _this.element = new three_1.Mesh(geometry, _this.material);
         return _this;
     }
