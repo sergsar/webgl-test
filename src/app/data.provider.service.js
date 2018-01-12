@@ -10,12 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
+require("rxjs/add/operator/map");
 var DataProviderService = (function () {
     function DataProviderService(httpClient) {
         this.httpClient = httpClient;
     }
     DataProviderService.prototype.getObservable = function (datasetName) {
         return this.httpClient.get('https://presentation.idvp.net/checkin/file/' + datasetName, { headers: new http_1.HttpHeaders().set('X-Tenant-Id', 'logus') });
+    };
+    // public subscribe(url: string, next?: (value: T) => void, options?: Map): void {
+    //
+    // }
+    DataProviderService.prototype.getPromise = function (url, options) {
+        return this.httpClient.get(url, options).toPromise();
     };
     return DataProviderService;
 }());

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class DataProviderService {
@@ -15,5 +16,11 @@ export class DataProviderService {
         );
     }
 
+    // public subscribe(url: string, next?: (value: T) => void, options?: Map): void {
+    //
+    // }
 
+    public getPromise<T>(url: string, options?: {}): Promise<T> {
+        return this.httpClient.get(url, options).toPromise<T>();
+    }
 }

@@ -1,9 +1,12 @@
 import {Component, forwardRef, ContentChildren, QueryList, AfterContentInit} from '@angular/core';
 import {Object3dComponent} from '../../three-basis/object3d.component';
 import {CubeFirstElement} from './cube-first-element';
-import {BoxGeometry, Color, Group, MeshLambertMaterial, Mesh, Object3D, Vector3, Material} from 'three';
+import { BoxGeometry, Color, Group, MeshLambertMaterial, Mesh, Object3D, Vector3, Material, Font, BufferGeometry, ShapeGeometry, MeshBasicMaterial } from 'three';
 import {CubeSerialElement} from './cube-serial-element';
 import {BindObjectComponent} from '../../components-elementary/bind-object.component';
+import {DataProviderService} from '../../data.provider.service';
+import {Anchor} from '../../three-basis/anchor';
+import {AnchorToVector2} from '../../three-basis/anchor-to-vector2';
 
 @Component({
     selector: 'cube-control',
@@ -12,8 +15,15 @@ import {BindObjectComponent} from '../../components-elementary/bind-object.compo
 })
 export class CubeControlComponent extends Object3dComponent implements AfterContentInit {
 
+    private dataProviderService: DataProviderService;
+
     @ContentChildren(BindObjectComponent)
     private objects: QueryList<BindObjectComponent> = new QueryList<BindObjectComponent>();
+
+    constructor(dataProviderService: DataProviderService) {
+        super();
+        this.dataProviderService = dataProviderService;
+    }
 
     ngAfterContentInit() {
         function getBodyMaterial(color: any): Material { return new MeshLambertMaterial({color: color}); }
@@ -53,7 +63,47 @@ export class CubeControlComponent extends Object3dComponent implements AfterCont
             group.add(element);
         });
 
+        let ratesTitle = cubeRatesRoot.getItems().filter(p => p.key === 'Title')[0].value;
+        let leftRateValue = cubeRates[0].getItems().filter(p => p.key === 'Value')[0].value;
+        let rightRateValue = cubeRates[cubeRates.length - 1].getItems().filter(p => p.key === 'Value')[0].value;
+        let fontUrl = 'assets/fonts/helvetiker_regular.typeface.json';
+        let promise = this.dataProviderService.getPromise<string>(fontUrl);
+        let textsMaterial = new MeshBasicMaterial({color: 'white'});
+        let ratesTitleSize = 0.04;
+        let ratesValueSize = 0.05;
+        promise.then(fontData => {
+            let rateValuesGroup = new Group();
+            let ratesTitleGeometry = this.getTextGeometry(ratesTitle, fontData, ratesTitleSize, Anchor.LowerCenter);
+            let ratesTitleElement = new Mesh(ratesTitleGeometry, textsMaterial);
+            ratesTitleElement.translateY(partsHeight + ratesThickness + ratesTitleSize * 0.5);
+            rateValuesGroup.add(ratesTitleElement);
+            let leftRateValueGeometry = this.getTextGeometry(leftRateValue, fontData, ratesValueSize, Anchor.LowerLeft);
+            let leftRateValueElement = new Mesh(leftRateValueGeometry, textsMaterial);
+            let rightRateValueGeometry = this.getTextGeometry(rightRateValue, fontData, ratesValueSize, Anchor.LowerRight);
+            let rightRateValueElement = new Mesh(rightRateValueGeometry, textsMaterial);
+            leftRateValueElement.translateOnAxis(new Vector3(-0.45, partsHeight + ratesThickness + ratesValueSize * 0.2, 0), 1);
+            rightRateValueElement.translateOnAxis(new Vector3(0.45, partsHeight + ratesThickness + ratesValueSize * 0.2, 0), 1);
+            rateValuesGroup.add(rightRateValueElement);
+            rateValuesGroup.add(leftRateValueElement);
+            rateValuesGroup.translateZ(-0.5);
+            group.add(rateValuesGroup);
+
+        }).catch(e => console.log(e));
 
         this.object3d = group;
+    }
+
+    private getTextGeometry(text: string, fontData: string, size: number, anchor: Anchor = Anchor.MiddleCenter): BufferGeometry {
+        let font = new Font(fontData);
+        let shapes = font.generateShapes(text, size, 1);
+        let shapeGeometry = new ShapeGeometry(shapes);
+        shapeGeometry.computeBoundingBox();
+        let vector2 = AnchorToVector2(anchor);
+        let xMid = -0.5 * (vector2.x + 1) * (shapeGeometry.boundingBox.max.x - shapeGeometry.boundingBox.min.x);
+        let yMid = -0.5 * (vector2.y + 1) * (shapeGeometry.boundingBox.max.y - shapeGeometry.boundingBox.min.y);
+        shapeGeometry.translate(xMid, yMid, 0);
+        let bufferGeometry = new BufferGeometry();
+        bufferGeometry.fromGeometry(shapeGeometry);
+        return bufferGeometry;
     }
 }
