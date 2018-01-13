@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var Anchor;
 (function (Anchor) {
     Anchor[Anchor["UpperLeft"] = 2] = "UpperLeft";

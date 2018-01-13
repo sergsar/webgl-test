@@ -8,11 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var scene_component_1 = require("./scene.component");
 var renderer_provider_service_1 = require("./renderer-provider.service");
 var animate_provider_service_1 = require("./animate-provider.service");
-var RendererComponent = (function () {
+var RendererComponent = /** @class */ (function () {
     function RendererComponent(animateProvider, rendererProvider) {
         this.animateProvider = animateProvider;
         this.rendererProvider = rendererProvider;
@@ -28,27 +29,27 @@ var RendererComponent = (function () {
         var animateTask = function () { return _this.renderer.render(scene, perspectiveCamera); };
         this.animateProvider.setFrameTask(this, animateTask);
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], RendererComponent.prototype, "height", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], RendererComponent.prototype, "width", void 0);
+    __decorate([
+        core_1.ViewChild('canvas'),
+        __metadata("design:type", Object)
+    ], RendererComponent.prototype, "canvas", void 0);
+    __decorate([
+        core_1.ContentChild(scene_component_1.SceneComponent),
+        __metadata("design:type", scene_component_1.SceneComponent)
+    ], RendererComponent.prototype, "sceneComponent", void 0);
+    RendererComponent = __decorate([
+        core_1.Component({ selector: 'renderer', templateUrl: './renderer.component.html' }),
+        __metadata("design:paramtypes", [animate_provider_service_1.AnimateProvider, renderer_provider_service_1.RendererProvider])
+    ], RendererComponent);
     return RendererComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], RendererComponent.prototype, "height", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], RendererComponent.prototype, "width", void 0);
-__decorate([
-    core_1.ViewChild('canvas'),
-    __metadata("design:type", Object)
-], RendererComponent.prototype, "canvas", void 0);
-__decorate([
-    core_1.ContentChild(scene_component_1.SceneComponent),
-    __metadata("design:type", scene_component_1.SceneComponent)
-], RendererComponent.prototype, "sceneComponent", void 0);
-RendererComponent = __decorate([
-    core_1.Component({ selector: 'renderer', templateUrl: './renderer.component.html' }),
-    __metadata("design:paramtypes", [animate_provider_service_1.AnimateProvider, renderer_provider_service_1.RendererProvider])
-], RendererComponent);
 exports.RendererComponent = RendererComponent;
 //# sourceMappingURL=renderer.component.js.map

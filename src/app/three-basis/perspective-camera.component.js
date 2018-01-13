@@ -8,21 +8,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var three_1 = require("three");
 var camera_provider_service_1 = require("./camera-provider.service");
-var PerspectiveCameraComponent = (function () {
+var PerspectiveCameraComponent = /** @class */ (function () {
     function PerspectiveCameraComponent(cameraProvider) {
         this.cameraProvider = cameraProvider;
         var perspectiveCameraSetupFn = function () { return new three_1.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000); };
         this.perspectiveCamera = this.cameraProvider.getPerspectiveCamera(perspectiveCameraSetupFn);
         this.perspectiveCamera.position.z = 5;
     }
+    PerspectiveCameraComponent = __decorate([
+        core_1.Component({ selector: 'perspective-camera', template: '<ng-content></ng-content>' }),
+        __metadata("design:paramtypes", [camera_provider_service_1.CameraProvider])
+    ], PerspectiveCameraComponent);
     return PerspectiveCameraComponent;
 }());
-PerspectiveCameraComponent = __decorate([
-    core_1.Component({ selector: 'perspective-camera', template: '<ng-content></ng-content>' }),
-    __metadata("design:paramtypes", [camera_provider_service_1.CameraProvider])
-], PerspectiveCameraComponent);
 exports.PerspectiveCameraComponent = PerspectiveCameraComponent;
 //# sourceMappingURL=perspective-camera.component.js.map

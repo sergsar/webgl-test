@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
 
 @Injectable()
 export class DataProviderService {
@@ -9,11 +8,10 @@ export class DataProviderService {
     constructor (private httpClient: HttpClient) { }
 
 
-    public getObservable(datasetName: string): Observable<Object> {
-        return         this.httpClient.get(
-            'https://presentation.idvp.net/checkin/file/' + datasetName,
-            {headers: new HttpHeaders().set('X-Tenant-Id', 'logus')}
-        );
+    public getObservable<T>(url: string, options?: {}): Observable<T>;
+
+    public getObservable(url: string, options?: {}): Observable<Object> {
+        return this.httpClient.get(url, options);
     }
 
     // public subscribe(url: string, next?: (value: T) => void, options?: Map): void {
@@ -21,6 +19,17 @@ export class DataProviderService {
     // }
 
     public getPromise<T>(url: string, options?: {}): Promise<T> {
-        return this.httpClient.get(url, options).toPromise<T>();
+        return this.getObservable<T>(url, options).toPromise<T>();
+    }
+
+    public async getAwait<T>(url: string, options?: {}) {
+        let response: T;
+        try {
+            response = await this.getPromise<T>(url);
+            console.log(response);
+        } catch (e) {
+            throw new Error(e);
+        }
+        return response;
     }
 }

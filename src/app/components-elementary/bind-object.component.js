@@ -8,13 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var bind_item_component_1 = require("./bind-item.component");
-var BindObjectComponent = BindObjectComponent_1 = (function () {
+var BindObjectComponent = /** @class */ (function () {
     function BindObjectComponent() {
         this.items = new core_1.QueryList();
         this.objects = new core_1.QueryList();
     }
+    BindObjectComponent_1 = BindObjectComponent;
     // ngOnInit() {
     //     console.log(this.name);
     // }
@@ -24,23 +26,23 @@ var BindObjectComponent = BindObjectComponent_1 = (function () {
     BindObjectComponent.prototype.getObjects = function () {
         return this.objects;
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], BindObjectComponent.prototype, "name", void 0);
+    __decorate([
+        core_1.ContentChildren(bind_item_component_1.BindItemComponent),
+        __metadata("design:type", core_1.QueryList)
+    ], BindObjectComponent.prototype, "items", void 0);
+    __decorate([
+        core_1.ContentChildren(BindObjectComponent_1),
+        __metadata("design:type", core_1.QueryList)
+    ], BindObjectComponent.prototype, "objects", void 0);
+    BindObjectComponent = BindObjectComponent_1 = __decorate([
+        core_1.Component({ selector: 'bind-object', template: '<ng-content></ng-content>' })
+    ], BindObjectComponent);
     return BindObjectComponent;
+    var BindObjectComponent_1;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], BindObjectComponent.prototype, "name", void 0);
-__decorate([
-    core_1.ContentChildren(bind_item_component_1.BindItemComponent),
-    __metadata("design:type", core_1.QueryList)
-], BindObjectComponent.prototype, "items", void 0);
-__decorate([
-    core_1.ContentChildren(BindObjectComponent_1),
-    __metadata("design:type", core_1.QueryList)
-], BindObjectComponent.prototype, "objects", void 0);
-BindObjectComponent = BindObjectComponent_1 = __decorate([
-    core_1.Component({ selector: 'bind-object', template: '<ng-content></ng-content>' })
-], BindObjectComponent);
 exports.BindObjectComponent = BindObjectComponent;
-var BindObjectComponent_1;
 //# sourceMappingURL=bind-object.component.js.map

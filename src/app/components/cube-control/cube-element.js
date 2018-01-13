@@ -1,5 +1,6 @@
 "use strict";
-var CubeElement = (function () {
+Object.defineProperty(exports, "__esModule", { value: true });
+var CubeElement = /** @class */ (function () {
     function CubeElement() {
     }
     CubeElement.prototype.getElement = function () {

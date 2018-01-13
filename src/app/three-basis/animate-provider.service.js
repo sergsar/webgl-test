@@ -8,8 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var AnimateProvider = (function () {
+var AnimateProvider = /** @class */ (function () {
     function AnimateProvider(ngZone) {
         this.ngZone = ngZone;
         this.animateMap = new Map();
@@ -23,11 +24,11 @@ var AnimateProvider = (function () {
         this.ngZone.runOutsideAngular(function () { return requestAnimationFrame(function () { return _this.animate(); }); });
         this.animateMap.forEach(function (p) { return p(); });
     };
+    AnimateProvider = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [core_1.NgZone])
+    ], AnimateProvider);
     return AnimateProvider;
 }());
-AnimateProvider = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [core_1.NgZone])
-], AnimateProvider);
 exports.AnimateProvider = AnimateProvider;
 //# sourceMappingURL=animate-provider.service.js.map
