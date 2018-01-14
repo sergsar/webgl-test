@@ -3,14 +3,14 @@ import {Object3dComponent} from '../../three-basis/object3d.component';
 import {CubeFirstElement} from './cube-first-element';
 import {
     BoxGeometry, Color, Group, MeshLambertMaterial, Mesh, Object3D, Vector3, Material, Font, BufferGeometry,
-    ShapeGeometry, MeshBasicMaterial, Texture, RGBFormat
+    ShapeGeometry, MeshBasicMaterial, Texture
 } from 'three';
 import {CubeSerialElement} from './cube-serial-element';
 import {BindObjectComponent} from '../../components-elementary/bind-object.component';
 import {DataProviderService} from '../../data.provider.service';
 import {Anchor} from '../../three-basis/anchor';
 import {anchorToVector2} from '../../three-basis/anchor-to-vector2';
-import {ResponseContentType} from '@angular/http';
+import {ImageProviderService} from '../../three-basis/image-provider.service';
 
 @Component({
     selector: 'cube-control',
@@ -20,13 +20,15 @@ import {ResponseContentType} from '@angular/http';
 export class CubeControlComponent extends Object3dComponent implements AfterContentInit {
 
     private dataProviderService: DataProviderService;
+    private imageProviderService: ImageProviderService;
 
     @ContentChildren(BindObjectComponent)
     private objects: QueryList<BindObjectComponent> = new QueryList<BindObjectComponent>();
 
-    constructor(dataProviderService: DataProviderService) {
+    constructor(dataProviderService: DataProviderService, imageProviderService: ImageProviderService) {
         super();
         this.dataProviderService = dataProviderService;
+        this.imageProviderService = imageProviderService;
     }
 
     ngAfterContentInit() {
@@ -38,16 +40,14 @@ export class CubeControlComponent extends Object3dComponent implements AfterCont
         let fontUrl = 'assets/fonts/helvetiker_regular.typeface.json';
         let fontData = await this.dataProviderService.getAwait<string>(fontUrl);
         let textureUrl = 'assets/textures/UV_Grid_Sm.jpg';
-        // let textureData = await this.dataProviderService.getAwait<Blob>(textureUrl);
-        // console.log(textureData);
-        // let texture = new Texture();
-        // texture.image = textureData;
-        // texture.format = RGBFormat;
-        // texture.needsUpdate = true;
+        let texture = new Texture();
+        texture.image = this.imageProviderService.getImage(textureUrl);
+        texture.format = RGBFormat;
+        texture.needsUpdate = true;
 
         let group = this.object3d;
 
-        function getBodyMaterial(color: any): Material { return new MeshLambertMaterial({color: color}); }
+        function getBodyMaterial(color: any): Material { return new MeshLambertMaterial({color: color, map: texture}); }
         let partsHeight = 0.1;
         let cubePartsRoot = this.objects.filter(p => p.name === 'CubeParts')[0];
         let cubeParts = cubePartsRoot.getObjects().filter(p => p.name === 'CubePart').sort(p => -Number(p.getItems().filter(p1 => p1.key === 'Value')[0].value));

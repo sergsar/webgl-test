@@ -78,8 +78,8 @@ var CubeControlComponent = /** @class */ (function (_super) {
     };
     CubeControlComponent.prototype.createComponent = function () {
         return __awaiter(this, void 0, void 0, function () {
-            function getBodyMaterial(color) { return new three_1.MeshLambertMaterial({ color: color }); }
-            var fontUrl, fontData, textureUrl, textureData, group, partsHeight, cubePartsRoot, cubeParts, ratesMaxValue, i, cubePart, color, element, value, previousCubePart, value, value2, ratesThickness, cubeRatesRoot, cubeRates, ratesSum, widths, ratesTitle, leftRateValue, rightRateValue, textsMaterial, ratesTitleSize, ratesValueSize, rateValuesGroup, ratesTitleGeometry, ratesTitleElement, leftRateValueGeometry, leftRateValueElement, rightRateValueGeometry, rightRateValueElement;
+            function getBodyMaterial(color) { return new three_1.MeshLambertMaterial({ color: color, map: texture }); }
+            var fontUrl, fontData, textureUrl, image, textureLoader, texture, group, partsHeight, cubePartsRoot, cubeParts, ratesMaxValue, i, cubePart, color, element, value, previousCubePart, value, value2, ratesThickness, cubeRatesRoot, cubeRates, ratesSum, widths, ratesTitle, leftRateValue, rightRateValue, textsMaterial, ratesTitleSize, ratesValueSize, rateValuesGroup, ratesTitleGeometry, ratesTitleElement, leftRateValueGeometry, leftRateValueElement, rightRateValueGeometry, rightRateValueElement;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -88,9 +88,16 @@ var CubeControlComponent = /** @class */ (function (_super) {
                     case 1:
                         fontData = _a.sent();
                         textureUrl = 'assets/textures/UV_Grid_Sm.jpg';
-                        return [4 /*yield*/, this.dataProviderService.getAwait(textureUrl)];
-                    case 2:
-                        textureData = _a.sent();
+                        image = document.createElementNS('http://www.w3.org/1999/xhtml', 'img');
+                        image.setAttribute('src', textureUrl);
+                        image.setAttribute('crossOrigin', 'Anonymous');
+                        console.log(image);
+                        textureLoader = new three_1.TextureLoader();
+                        textureLoader.load(textureUrl, function (p) { return console.log(p.image); });
+                        texture = new three_1.Texture();
+                        texture.image = image;
+                        texture.format = three_1.RGBFormat;
+                        texture.needsUpdate = true;
                         group = this.object3d;
                         partsHeight = 0.1;
                         cubePartsRoot = this.objects.filter(function (p) { return p.name === 'CubeParts'; })[0];

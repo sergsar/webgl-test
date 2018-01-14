@@ -18,14 +18,20 @@ export class DataProviderService {
     //
     // }
 
-    public getPromise<T>(url: string, options?: {}): Promise<T> {
-        return this.getObservable<T>(url, options).toPromise<T>();
+    public getPromise<T>(url: string, options?: {}): Promise<T>;
+
+    public getPromise(url: string, options?: {}): Promise<Object> {
+        return this.getObservable(url, options).toPromise();
     }
 
-    public async getAwait<T>(url: string, options?: {}) {
-        let response: T;
+
+    // example binary data: await getAwait(textureUrl, {responseType: 'arraybuffer'});
+    public async getAwait<T>(url: string, options?: {}): Promise<T>;
+
+    public async getAwait(url: string, options?: {}): Promise<Object> {
+        let response;
         try {
-            response = await this.getPromise<T>(url);
+            response = await this.getPromise(url, options);
             console.log(response);
         } catch (e) {
             throw new Error(e);

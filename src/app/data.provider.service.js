@@ -53,9 +53,6 @@ var DataProviderService = /** @class */ (function () {
     DataProviderService.prototype.getObservable = function (url, options) {
         return this.httpClient.get(url, options);
     };
-    // public subscribe(url: string, next?: (value: T) => void, options?: Map): void {
-    //
-    // }
     DataProviderService.prototype.getPromise = function (url, options) {
         return this.getObservable(url, options).toPromise();
     };
@@ -66,7 +63,7 @@ var DataProviderService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.getPromise(url)];
+                        return [4 /*yield*/, this.getPromise(url, options)];
                     case 1:
                         response = _a.sent();
                         console.log(response);
