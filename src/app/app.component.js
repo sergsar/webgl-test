@@ -12,15 +12,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var data_provider_service_1 = require("./data.provider.service");
 var http_1 = require("@angular/common/http");
-var AppComponent = /** @class */ (function () {
+var AppComponent = (function () {
     function AppComponent(dataProviderService) {
         this.dataProviderService = dataProviderService;
     } // TODO: delete after data providers completed, only needed for data tests
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
-        var options = { headers: new http_1.HttpHeaders().set('X-Tenant-Id', 'logus') };
+        var headers = new http_1.HttpHeaders((_a = {}, _a['X-Tenant-Id'] = 'logus', _a));
+        var options = { headers: headers };
         var url = 'https://presentation.idvp.net/checkin/file/checkin.json';
         this.dataProviderService.getObservable(url, options).subscribe(function (p) { return _this.data = p; });
+        var _a;
     };
     AppComponent = __decorate([
         core_1.Component({ selector: 'my-app', templateUrl: './app.component.html' }),

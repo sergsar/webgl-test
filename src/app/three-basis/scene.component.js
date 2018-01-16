@@ -23,7 +23,7 @@ var core_1 = require("@angular/core");
 var perspective_camera_component_1 = require("./perspective-camera.component");
 var scene_provider_service_1 = require("./scene-provider.service");
 var object3d_component_1 = require("./object3d.component");
-var SceneComponent = /** @class */ (function (_super) {
+var SceneComponent = (function (_super) {
     __extends(SceneComponent, _super);
     function SceneComponent(sceneProvider) {
         var _this = _super.call(this) || this;

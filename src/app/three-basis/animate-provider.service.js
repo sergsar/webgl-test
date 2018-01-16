@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var AnimateProvider = /** @class */ (function () {
+var AnimateProvider = (function () {
     function AnimateProvider(ngZone) {
         this.ngZone = ngZone;
         this.animateMap = new Map();
@@ -26,9 +26,10 @@ var AnimateProvider = /** @class */ (function () {
     };
     AnimateProvider = __decorate([
         core_1.Injectable(),
-        __metadata("design:paramtypes", [core_1.NgZone])
+        __metadata("design:paramtypes", [typeof (_a = typeof core_1.NgZone !== "undefined" && core_1.NgZone) === "function" && _a || Object])
     ], AnimateProvider);
     return AnimateProvider;
+    var _a;
 }());
 exports.AnimateProvider = AnimateProvider;
 //# sourceMappingURL=animate-provider.service.js.map

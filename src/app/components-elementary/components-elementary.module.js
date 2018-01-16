@@ -10,7 +10,7 @@ var core_1 = require("@angular/core");
 var group3d_component_1 = require("./group3d.component");
 var bind_object_component_1 = require("./bind-object.component");
 var bind_item_component_1 = require("./bind-item.component");
-var ComponentsElementaryModule = /** @class */ (function () {
+var ComponentsElementaryModule = (function () {
     function ComponentsElementaryModule() {
     }
     ComponentsElementaryModule = __decorate([

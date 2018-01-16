@@ -22,7 +22,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var three_1 = require("three");
 var object3d_component_1 = require("../three-basis/object3d.component");
-var Group3dComponent = /** @class */ (function (_super) {
+var Group3dComponent = (function (_super) {
     __extends(Group3dComponent, _super);
     function Group3dComponent() {
         var _this = _super.call(this) || this;

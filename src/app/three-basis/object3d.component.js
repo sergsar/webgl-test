@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var Object3dComponent = /** @class */ (function () {
+var Object3dComponent = (function () {
     function Object3dComponent() {
         this.objects3D = new core_1.QueryList();
     }
@@ -29,13 +29,13 @@ var Object3dComponent = /** @class */ (function () {
     };
     __decorate([
         core_1.ContentChildren(Object3dComponent_1),
-        __metadata("design:type", core_1.QueryList)
+        __metadata("design:type", typeof (_a = typeof core_1.QueryList !== "undefined" && core_1.QueryList) === "function" && _a || Object)
     ], Object3dComponent.prototype, "objects3D", void 0);
     Object3dComponent = Object3dComponent_1 = __decorate([
         core_1.Component({ template: '' })
     ], Object3dComponent);
     return Object3dComponent;
-    var Object3dComponent_1;
+    var Object3dComponent_1, _a;
 }());
 exports.Object3dComponent = Object3dComponent;
 //# sourceMappingURL=object3d.component.js.map

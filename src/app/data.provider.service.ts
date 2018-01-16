@@ -32,7 +32,6 @@ export class DataProviderService {
         let response;
         try {
             response = await this.getPromise(url, options);
-            console.log(response);
         } catch (e) {
             throw new Error(e);
         }

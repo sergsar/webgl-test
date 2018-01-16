@@ -46,7 +46,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
-var DataProviderService = /** @class */ (function () {
+var DataProviderService = (function () {
     function DataProviderService(httpClient) {
         this.httpClient = httpClient;
     }
@@ -66,7 +66,6 @@ var DataProviderService = /** @class */ (function () {
                         return [4 /*yield*/, this.getPromise(url, options)];
                     case 1:
                         response = _a.sent();
-                        console.log(response);
                         return [3 /*break*/, 3];
                     case 2:
                         e_1 = _a.sent();
@@ -78,9 +77,10 @@ var DataProviderService = /** @class */ (function () {
     };
     DataProviderService = __decorate([
         core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.HttpClient])
+        __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
     ], DataProviderService);
     return DataProviderService;
+    var _a;
 }());
 exports.DataProviderService = DataProviderService;
 //# sourceMappingURL=data.provider.service.js.map

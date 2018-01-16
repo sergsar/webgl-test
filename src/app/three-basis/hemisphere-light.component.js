@@ -22,7 +22,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var three_1 = require("three");
 var object3d_component_1 = require("./object3d.component");
-var HemisphereLightComponent = /** @class */ (function (_super) {
+var HemisphereLightComponent = (function (_super) {
     __extends(HemisphereLightComponent, _super);
     function HemisphereLightComponent() {
         var _this = _super.call(this) || this;

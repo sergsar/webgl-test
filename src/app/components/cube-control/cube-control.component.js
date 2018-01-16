@@ -63,12 +63,16 @@ var bind_object_component_1 = require("../../components-elementary/bind-object.c
 var data_provider_service_1 = require("../../data.provider.service");
 var anchor_1 = require("../../three-basis/anchor");
 var anchor_to_vector2_1 = require("../../three-basis/anchor-to-vector2");
-var CubeControlComponent = /** @class */ (function (_super) {
+var element_provider_service_1 = require("../../three-basis/element-provider.service");
+var bind_item_component_1 = require("../../components-elementary/bind-item.component");
+var CubeControlComponent = (function (_super) {
     __extends(CubeControlComponent, _super);
-    function CubeControlComponent(dataProviderService) {
+    function CubeControlComponent(dataProviderService, elementProviderService) {
         var _this = _super.call(this) || this;
         _this.objects = new core_1.QueryList();
+        _this.items = new core_1.QueryList();
         _this.dataProviderService = dataProviderService;
+        _this.elementProviderService = elementProviderService;
         return _this;
     }
     CubeControlComponent_1 = CubeControlComponent;
@@ -79,23 +83,20 @@ var CubeControlComponent = /** @class */ (function (_super) {
     CubeControlComponent.prototype.createComponent = function () {
         return __awaiter(this, void 0, void 0, function () {
             function getBodyMaterial(color) { return new three_1.MeshLambertMaterial({ color: color, map: texture }); }
-            var fontUrl, fontData, textureUrl, image, textureLoader, texture, group, partsHeight, cubePartsRoot, cubeParts, ratesMaxValue, i, cubePart, color, element, value, previousCubePart, value, value2, ratesThickness, cubeRatesRoot, cubeRates, ratesSum, widths, ratesTitle, leftRateValue, rightRateValue, textsMaterial, ratesTitleSize, ratesValueSize, rateValuesGroup, ratesTitleGeometry, ratesTitleElement, leftRateValueGeometry, leftRateValueElement, rightRateValueGeometry, rightRateValueElement;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
+            var fontUrl, fontData, textureUrl, texture, _a, group, partsHeight, cubePartsRoot, cubeParts, ratesMaxValue, i, cubePart, color, element, value, previousCubePart, value, value2, ratesThickness, cubeRatesRoot, cubeRates, ratesSum, widths, ratesTitle, leftRateValue, rightRateValue, textsMaterial, ratesTitleSize, ratesValueSize, rateValuesGroup, ratesTitleGeometry, ratesTitleElement, leftRateValueGeometry, leftRateValueElement, rightRateValueGeometry, rightRateValueElement;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
                     case 0:
                         fontUrl = 'assets/fonts/helvetiker_regular.typeface.json';
                         return [4 /*yield*/, this.dataProviderService.getAwait(fontUrl)];
                     case 1:
-                        fontData = _a.sent();
+                        fontData = _b.sent();
                         textureUrl = 'assets/textures/UV_Grid_Sm.jpg';
-                        image = document.createElementNS('http://www.w3.org/1999/xhtml', 'img');
-                        image.setAttribute('src', textureUrl);
-                        image.setAttribute('crossOrigin', 'Anonymous');
-                        console.log(image);
-                        textureLoader = new three_1.TextureLoader();
-                        textureLoader.load(textureUrl, function (p) { return console.log(p.image); });
                         texture = new three_1.Texture();
-                        texture.image = image;
+                        _a = texture;
+                        return [4 /*yield*/, this.elementProviderService.getImage(textureUrl)];
+                    case 2:
+                        _a.image = _b.sent();
                         texture.format = three_1.RGBFormat;
                         texture.needsUpdate = true;
                         group = this.object3d;
@@ -175,18 +176,22 @@ var CubeControlComponent = /** @class */ (function (_super) {
     };
     __decorate([
         core_1.ContentChildren(bind_object_component_1.BindObjectComponent),
-        __metadata("design:type", core_1.QueryList)
+        __metadata("design:type", typeof (_a = typeof core_1.QueryList !== "undefined" && core_1.QueryList) === "function" && _a || Object)
     ], CubeControlComponent.prototype, "objects", void 0);
+    __decorate([
+        core_1.ContentChildren(bind_item_component_1.BindItemComponent),
+        __metadata("design:type", typeof (_b = typeof core_1.QueryList !== "undefined" && core_1.QueryList) === "function" && _b || Object)
+    ], CubeControlComponent.prototype, "items", void 0);
     CubeControlComponent = CubeControlComponent_1 = __decorate([
         core_1.Component({
             selector: 'cube-control',
             template: '<ng-content></ng-content>',
             providers: [{ provide: object3d_component_1.Object3dComponent, useExisting: core_1.forwardRef(function () { return CubeControlComponent_1; }) }]
         }),
-        __metadata("design:paramtypes", [data_provider_service_1.DataProviderService])
+        __metadata("design:paramtypes", [data_provider_service_1.DataProviderService, element_provider_service_1.ElementProviderService])
     ], CubeControlComponent);
     return CubeControlComponent;
-    var CubeControlComponent_1;
+    var CubeControlComponent_1, _a, _b;
 }(object3d_component_1.Object3dComponent));
 exports.CubeControlComponent = CubeControlComponent;
 //# sourceMappingURL=cube-control.component.js.map

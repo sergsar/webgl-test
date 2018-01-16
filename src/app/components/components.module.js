@@ -9,7 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var cube_control_module_1 = require("./cube-control/cube-control.module");
 var cube_control_component_1 = require("./cube-control/cube-control.component");
-var ComponentsModule = /** @class */ (function () {
+var ComponentsModule = (function () {
     function ComponentsModule() {
     }
     ComponentsModule = __decorate([

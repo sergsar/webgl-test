@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var three_1 = require("three");
-var CameraProvider = /** @class */ (function () {
+var CameraProvider = (function () {
     function CameraProvider() {
         this.perspectiveCameras = new Map();
     }

@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var camera_provider_service_1 = require("./camera-provider.service");
 var three_orbitcontrols_ts_1 = require("three-orbitcontrols-ts");
-var CameraOrbitControlComponent = /** @class */ (function () {
+var CameraOrbitControlComponent = (function () {
     function CameraOrbitControlComponent(cameraProvider) {
         this.cameraProvider = cameraProvider;
         var perspectiveCamera = this.cameraProvider.getPerspectiveCamera();

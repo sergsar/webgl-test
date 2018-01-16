@@ -14,7 +14,7 @@ var data_provider_service_1 = require("./data.provider.service");
 var http_1 = require("@angular/common/http");
 var components_module_1 = require("./components/components.module");
 var components_elementary_module_1 = require("./components-elementary/components-elementary.module");
-var AppModule = /** @class */ (function () {
+var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([

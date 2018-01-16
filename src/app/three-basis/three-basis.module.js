@@ -19,7 +19,7 @@ var scene_provider_service_1 = require("./scene-provider.service");
 var camera_orbit_control_component_1 = require("./camera-orbit-control.component");
 var animate_provider_service_1 = require("./animate-provider.service");
 var box_control_component_1 = require("./box-control.component");
-var ThreeBasisModule = /** @class */ (function () {
+var ThreeBasisModule = (function () {
     function ThreeBasisModule() {
     }
     ThreeBasisModule = __decorate([

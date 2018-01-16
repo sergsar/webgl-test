@@ -12,12 +12,19 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var three_1 = require("three");
 var cube_element_1 = require("./cube-element");
-var CubeFirstElement = /** @class */ (function (_super) {
+var CubeFirstElement = (function (_super) {
     __extends(CubeFirstElement, _super);
     function CubeFirstElement(value, height, material) {
         var _this = _super.call(this) || this;
         _this.material = material;
         var boxGeometry = new three_1.BoxGeometry(value, height, value);
+        boxGeometry.vertices.forEach(function (p) { return console.log(p); });
+        // boxGeometry.faceVertexUvs.forEach(p => {
+        //     p.forEach(p1 => {
+        //         p1.forEach(p2 => p2.x = 2)
+        //         console.log(p1);
+        //     });
+        // });
         var element = new three_1.Mesh(boxGeometry, _this.material);
         element.translateOnAxis(new three_1.Vector3(value - 1, height, value - 1).multiplyScalar(0.5), 1);
         _this.element = element;

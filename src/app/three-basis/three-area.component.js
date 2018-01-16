@@ -11,18 +11,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var renderer_component_1 = require("./renderer.component");
-var ThreeAreaComponent = /** @class */ (function () {
+var ThreeAreaComponent = (function () {
     function ThreeAreaComponent() {
         this.RendererComponents = new core_1.QueryList();
     }
     __decorate([
         core_1.ContentChildren(renderer_component_1.RendererComponent),
-        __metadata("design:type", core_1.QueryList)
+        __metadata("design:type", typeof (_a = typeof core_1.QueryList !== "undefined" && core_1.QueryList) === "function" && _a || Object)
     ], ThreeAreaComponent.prototype, "RendererComponents", void 0);
     ThreeAreaComponent = __decorate([
         core_1.Component({ selector: 'three-area', template: "<ng-content></ng-content>" })
     ], ThreeAreaComponent);
     return ThreeAreaComponent;
+    var _a;
 }());
 exports.ThreeAreaComponent = ThreeAreaComponent;
 //# sourceMappingURL=three-area.component.js.map

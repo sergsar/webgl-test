@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var three_1 = require("three");
 var camera_provider_service_1 = require("./camera-provider.service");
-var PerspectiveCameraComponent = /** @class */ (function () {
+var PerspectiveCameraComponent = (function () {
     function PerspectiveCameraComponent(cameraProvider) {
         this.cameraProvider = cameraProvider;
         var perspectiveCameraSetupFn = function () { return new three_1.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000); };

@@ -13,7 +13,7 @@ var core_1 = require("@angular/core");
 var scene_component_1 = require("./scene.component");
 var renderer_provider_service_1 = require("./renderer-provider.service");
 var animate_provider_service_1 = require("./animate-provider.service");
-var RendererComponent = /** @class */ (function () {
+var RendererComponent = (function () {
     function RendererComponent(animateProvider, rendererProvider) {
         this.animateProvider = animateProvider;
         this.rendererProvider = rendererProvider;
